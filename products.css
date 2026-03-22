@@ -1,0 +1,366 @@
+/* ========== 产品页面专属样式 ========== */
+/* 面包屑 (复用 about.css 样式，但确保统一) */
+.breadcrumb {
+    background: #f8fafd;
+    padding: 0.8rem 0;
+    border-bottom: 1px solid rgba(44,125,160,0.1);
+}
+.breadcrumb .container {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    font-size: 0.85rem;
+}
+.breadcrumb a {
+    color: #2c7da0;
+    text-decoration: none;
+}
+.breadcrumb .current {
+    color: #5f7f9e;
+}
+
+
+/* 产品区块 */
+.product-section {
+    padding: 60px 0;
+}
+.bg-light {
+    background: #f9fbfe;
+}
+.section-header {
+    text-align: center;
+    margin-bottom: 2.5rem;
+}
+.section-title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #003753;
+    margin-bottom: 0.5rem;
+}
+.section-title span {
+    font-size: 1rem;
+    font-weight: 400;
+    color: #5f7f9e;
+    display: block;
+}
+.section-subtitle {
+    color: #5f7f9e;
+    max-width: 700px;
+    margin: 0 auto;
+}
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 30px;
+}
+.product-card {
+    background: white;
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+    transition: all 0.3s ease;
+    position: relative;
+    cursor: pointer;
+}
+.product-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 35px rgba(44,125,160,0.15);
+}
+.product-img {
+    height: 220px;
+    overflow: hidden;
+}
+.product-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s;
+}
+.product-card:hover .product-img img {
+    transform: scale(1.03);
+}
+.product-info {
+    padding: 1.2rem;
+}
+.product-info h3 {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    color: #1f5e7a;
+}
+.product-info h3 span {
+    font-size: 0.85rem;
+    font-weight: normal;
+    color: #7b9ab0;
+    display: block;
+    margin-top: 4px;
+}
+.product-info p {
+    font-size: 0.9rem;
+    color: #4a627a;
+    line-height: 1.5;
+    margin-bottom: 0.75rem;
+}
+.product-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+.product-tags span {
+    background: #eef4fc;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.7rem;
+    color: #2c7da0;
+    font-weight: 500;
+}
+.card-hover-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(44,125,160,0.95);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 1.5rem;
+    opacity: 0;
+    transition: opacity 0.3s;
+    pointer-events: none;
+    border-radius: 24px;
+}
+.product-card:hover .card-hover-overlay {
+    opacity: 1;
+    pointer-events: auto;
+}
+.card-hover-overlay p {
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+}
+.btn-inquire {
+    background: white;
+    color: #2c7da0;
+    border: none;
+    padding: 8px 20px;
+    border-radius: 40px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: 0.2s;
+}
+.btn-inquire:hover {
+    background: #ffd966;
+    color: #1f5e7a;
+    transform: scale(1.02);
+}
+
+/* 行业应用案例 */
+.application-showcase {
+    padding: 60px 0;
+    background: #fff;
+}
+.case-scroll {
+    display: flex;
+    overflow-x: auto;
+    gap: 24px;
+    padding: 20px 0;
+    scrollbar-width: thin;
+}
+.case-card {
+    flex: 0 0 280px;
+    background: white;
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    transition: 0.3s;
+}
+.case-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 25px rgba(44,125,160,0.15);
+}
+.case-img {
+    height: 180px;
+    overflow: hidden;
+}
+.case-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.case-info {
+    padding: 1rem;
+}
+.case-info h4 {
+    font-size: 1.1rem;
+    color: #2c7da0;
+    margin-bottom: 0.5rem;
+}
+.case-info p {
+    font-size: 0.85rem;
+    color: #5f7f9e;
+}
+
+/* 询价表单区域 */
+.inquiry-section {
+    background: linear-gradient(135deg, #eef4fc 0%, #ffffff 100%);
+    padding: 60px 0;
+}
+.inquiry-wrapper {
+    max-width: 800px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 32px;
+    padding: 2rem;
+    box-shadow: 0 20px 35px rgba(0,0,0,0.05);
+    text-align: center;
+}
+.inquiry-desc {
+    color: #5f7f9e;
+    margin-bottom: 1.5rem;
+}
+.inquiry-form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+.inquiry-form-grid input,
+.inquiry-form-grid select,
+.inquiry-form-grid textarea {
+    width: 100%;
+    padding: 12px 16px;
+    border: 1px solid #e2e8f0;
+    border-radius: 40px;
+    font-size: 0.9rem;
+    transition: 0.2s;
+}
+.inquiry-form-grid textarea {
+    border-radius: 20px;
+    resize: vertical;
+    grid-column: span 2;
+}
+.inquiry-form-grid select {
+    background: white;
+}
+.inquiry-form-grid input:focus,
+.inquiry-form-grid select:focus,
+.inquiry-form-grid textarea:focus {
+    border-color: #2c7da0;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(44,125,160,0.1);
+}
+.submit-btn {
+    grid-column: span 2;
+    background: #2c7da0;
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 40px;
+    font-weight: 700;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: 0.2s;
+}
+.submit-btn:hover {
+    background: #1f5e7a;
+    transform: translateY(-2px);
+}
+
+/* 产品详情模态框 */
+.product-detail-modal {
+    max-width: 900px;
+    width: 90%;
+}
+.product-detail-content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+}
+.detail-gallery {
+    flex: 1;
+    min-width: 200px;
+}
+.detail-gallery img {
+    width: 100%;
+    border-radius: 16px;
+}
+.detail-specs {
+    flex: 1.5;
+}
+.spec-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1rem 0;
+}
+.spec-table tr {
+    border-bottom: 1px solid #eef2f8;
+}
+.spec-table td {
+    padding: 8px 0;
+    font-size: 0.9rem;
+}
+.spec-table td:first-child {
+    font-weight: 600;
+    width: 35%;
+    color: #2c7da0;
+}
+.app-scene {
+    background: #f0f7fc;
+    padding: 1rem;
+    border-radius: 16px;
+    margin: 1rem 0;
+    font-size: 0.9rem;
+}
+.modal-buttons {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+.modal-buttons .btn-primary {
+    background: #2c7da0;
+    padding: 10px 20px;
+    border-radius: 40px;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+}
+.modal-buttons .sample-btn {
+    background: #ffb347;
+}
+.modal-buttons .btn-primary:hover {
+    opacity: 0.9;
+    transform: translateY(-2px);
+}
+
+/* 移动端适配 */
+@media (max-width: 768px) {
+    .product-categories-wrapper {
+        top: 64px;
+    }
+    .product-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    .inquiry-form-grid {
+        grid-template-columns: 1fr;
+    }
+    .inquiry-form-grid textarea,
+    .submit-btn {
+        grid-column: span 1;
+    }
+    .product-detail-content {
+        flex-direction: column;
+    }
+    .section-title {
+        font-size: 1.6rem;
+    }
+    .product-section {
+        padding: 40px 0;
+    }
+    .application-showcase {
+        padding: 40px 0;
+    }
+}
