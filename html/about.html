@@ -7,8 +7,8 @@
     <meta name="description" content="越洋线缆成立于2002年，总部位于东莞虎门，专注医疗、汽车、安防等高端线缆制造，年产值超6000万美金，服务全球客户。">
     <!-- Font Awesome 6 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="stylesheet" href="index.css">
-    <link rel="stylesheet" href="about.css">
+    <link rel="stylesheet" href="../css/about.css">
+    <link rel="stylesheet" href="../css/index.css">
     <!-- Schema.org BreadcrumbList -->
     <script type="application/ld+json">
     {
@@ -18,12 +18,12 @@
         "@type": "ListItem",
         "position": 1,
         "name": "หน้าแรก",
-        "item": "https://www.yueyang-cable.com/index-th.html"
+        "item": "https://www.yueyang-cable.com/index.html"
       },{
         "@type": "ListItem",
         "position": 2,
         "name": "เกี่ยวกับเรา",
-        "item": "https://www.yueyang-cable.com/about-th.html"
+        "item": "https://www.yueyang-cable.com/about.html"
       }]
     }
     </script>
@@ -34,7 +34,7 @@
 <header class="site-header">
     <div class="header-container">
         <div class="logo-area">
-            <a href="index-th.html" class="logo-link">
+            <a href="index.html" class="logo-link">
                 <img src="images/logo.webp" alt="Yueyang Cable" class="logo-img">
                 <div class="company-info">
                     <h1 class="name-th">บริษัท เยว่หยาง ไวร์ แอนด์ เคเบิล จำกัด</h1>
@@ -44,11 +44,12 @@
         </div>
         <nav class="nav-wrapper" id="navWrapper">
             <ul class="nav-menu">
-                <li><a href="index-th.html">หน้าแรก</a></li>
-                <li><a href="about-th.html" class="active">เกี่ยวกับเรา</a></li>
-                <li><a href="products-th.html">ผลิตภัณฑ์</a></li>
-                <li><a href="factory-th.html">ฐานการผลิต</a></li>
-                <li><a href="contact-th.html">ติดต่อเรา</a></li>
+                <li><a href="index.html">หน้าแรก</a></li>
+                <li><a href="about.html" class="active">เกี่ยวกับเรา</a></li>
+                <li><a href="products.html">ผลิตภัณฑ์</a></li>
+                <li><a href="factory.html">ฐานการผลิต</a></li>
+                <li><a href="partners.html" >พันธมิตร</a></li>
+                <li><a href="contact.html">ติดต่อเรา</a></li>
             </ul>
         </nav>
         <div class="header-right">
@@ -67,7 +68,7 @@
 <!-- ========== 面包屑导航 (含结构化数据) ========== -->
 <nav class="breadcrumb">
     <div class="container">
-        <a href="index-th.html">หน้าแรก</a>
+        <a href="index.html">หน้าแรก</a>
         <span>/</span>
         <span class="current">เกี่ยวกับเรา</span>
     </div>
@@ -273,8 +274,8 @@
             <div class="footer-col">
                 <h4>ลิงก์ด่วน</h4>
                 <ul>
-                    <li><a href="about-th.html">เกี่ยวกับเยว่หยาง</a></li>
-                    <li><a href="products-th.html">หมวดหมู่สินค้า</a></li>
+                    <li><a href="about.html">เกี่ยวกับเยว่หยาง</a></li>
+                    <li><a href="products.html">หมวดหมู่สินค้า</a></li>
                     <li><a href="#">ศูนย์วิจัยและพัฒนา</a></li>
                     <li><a href="#">ร่วมงานกับเรา</a></li>
                 </ul>
@@ -360,47 +361,7 @@
     </div>
 </div>
 
-<script src="script.js"></script>
-<script>
-    // 补充证书点击放大功能 & PDF下载演示 & 全球化卡片hover原生支持(用css)
-    document.addEventListener('DOMContentLoaded', function() {
-        const certItems = document.querySelectorAll('.cert-item');
-        const certModal = document.getElementById('certModal');
-        const certFullImg = document.getElementById('certFullImage');
-        const closeCertModal = document.getElementById('closeCertModal');
-        
-        if (certItems.length) {
-            certItems.forEach(item => {
-                item.addEventListener('click', function(e) {
-                    let imgSrc = this.getAttribute('data-fullimg');
-                    if (!imgSrc) imgSrc = this.querySelector('img')?.src || 'https://picsum.photos/id/26/400/300';
-                    certFullImg.src = imgSrc;
-                    certModal.style.display = 'flex';
-                });
-            });
-        }
-        if (closeCertModal) {
-            closeCertModal.addEventListener('click', () => { certModal.style.display = 'none'; });
-            certModal.addEventListener('click', (e) => { if(e.target === certModal) certModal.style.display = 'none'; });
-        }
-        
-        // PDF下载按钮提示 (演示)
-        const pdfBtns = document.querySelectorAll('#companyPdfBtn, #footerPdfBtn');
-        pdfBtns.forEach(btn => {
-            btn.addEventListener('click', (e) => {
-                e.preventDefault();
-                alert('📄 演示模式：实际项目中请替换为真实的公司简介PDF文件路径。\nDemo: Yueyang_Company_Profile.pdf');
-            });
-        });
-        
-        // 确保所有外部链接占位合理
-        const langToggle = document.querySelector('.lang-toggle');
-        if(langToggle) {
-            langToggle.addEventListener('click', () => {
-                alert('语言切换功能演示，正式站点可链接对应语言版本页面');
-            });
-        }
-    });
-</script>
+<script src="../js/script.js"></script>
+
 </body>
 </html>
