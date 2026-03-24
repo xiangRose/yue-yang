@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>ฐานการผลิต | บริษัท เยว่หยาง ไวร์ แอนด์ เคเบิล จำกัด</title>
-    <meta name="description" content="越洋线缆全球五大生产基地：东莞总部、四川基地、泰国工厂、美国服务中心，总面积超20,000㎡，年产能突破10,000万米。">
+    <meta name="description" content="เครือข่ายการผลิตระดับโลกของเยว่หยาง: สำนักงานใหญ่ตงก่วน ฐานการผลิตเสฉวน โรงงานไทย และศูนย์บริการสหรัฐอเมริกา พื้นที่รวมกว่า 20,000 ตร.ม. กำลังการผลิตกว่า 10,000 ล้านเมตรต่อปี">
     <!-- Font Awesome 6 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <!-- 全局样式（复用 index.css 和 about.css 的基础部分） -->
+    <!-- 全局样式 -->
     <link rel="stylesheet" href="../css/index.css">
     <link rel="stylesheet" href="../css/factory.css">
     <!-- Schema.org BreadcrumbList -->
@@ -36,7 +36,7 @@
     <div class="header-container">
         <div class="logo-area">
             <a href="index.html" class="logo-link">
-                <img src="images/logo.webp" alt="Yueyang Cable" class="logo-img">
+                <img src="../images/logo.webp" alt="Yueyang Cable" class="logo-img">
                 <div class="company-info">
                     <h1 class="name-th">บริษัท เยว่หยาง ไวร์ แอนด์ เคเบิล จำกัด</h1>
                     <p class="name-en">YUEYANG WIRE & CABLE CO., LTD.</p>
@@ -49,7 +49,7 @@
                 <li><a href="about.html">เกี่ยวกับเรา</a></li>
                 <li><a href="products.html">ผลิตภัณฑ์</a></li>
                 <li><a href="factory.html" class="active">ฐานการผลิต</a></li>
-                 <li><a href="partners.html">พันธมิตร</a></li>
+                <li><a href="partners.html">พันธมิตร</a></li>
                 <li><a href="contact.html">ติดต่อเรา</a></li>
             </ul>
         </nav>
@@ -79,7 +79,7 @@
 
 <!-- 英雄区：工厂概览 -->
 <section class="factory-hero">
-    <div class="factory-hero-bg" style="background-image: url('images/factory-hero.jpg');">
+    <div class="factory-hero-bg" style="background-image: url('../images/factory-hero.webp');">
         <div class="factory-hero-overlay"></div>
         <div class="container factory-hero-content">
             <h2>เครือข่ายการผลิตระดับโลก</h2>
@@ -93,80 +93,83 @@
     </div>
 </section>
 
-<!-- 全球地图交互模块 (SVG高亮 + 悬浮提示) -->
-<section class="section map-section">
-    <div class="container">
-        <h2 class="section-title">แผนที่ฐานการผลิตทั่วโลก</h2>
-        <div class="map-container" id="mapContainer">
-            <!-- SVG 示意地图 (可替换为真实图片，但保留交互) -->
-            <svg class="map-svg" viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg">
-                <rect width="800" height="400" fill="#e6f3fc" rx="20" />
-                <!-- 中国区域 (东莞+四川) -->
-                <path d="M300,100 L450,80 L480,150 L430,180 L350,170 Z" fill="#b0d4f0" stroke="#0077b6" stroke-width="1.5" data-region="dongguan" style="cursor:pointer;" />
-                <text x="380" y="130" font-size="12" fill="#004d73">🇨🇳 东莞总部</text>
-                <circle cx="360" cy="150" r="8" fill="#ffaa66" stroke="#0077b6" stroke-width="2" data-region="sichuan" style="cursor:pointer;" />
-                <text x="340" y="140" font-size="10" fill="#004d73">四川基地</text>
-                <!-- 泰国区域 -->
-                <path d="M540,210 L590,200 L600,250 L550,260 Z" fill="#b0d4f0" stroke="#0077b6" stroke-width="1.5" data-region="thailand" style="cursor:pointer;" />
-                <text x="560" y="235" font-size="12" fill="#004d73">🇹🇭 泰国工厂</text>
-                <!-- 美国区域 -->
-                <path d="M130,130 L180,110 L220,130 L200,170 L150,170 Z" fill="#b0d4f0" stroke="#0077b6" stroke-width="1.5" data-region="usa" style="cursor:pointer;" />
-                <text x="170" y="145" font-size="12" fill="#004d73">🇺🇸 美国服务中心</text>
-            </svg>
-            <div id="mapTooltip" class="map-tooltip" style="display:none;"></div>
+<!-- 全球地图交互模块 -->
+<div class="global-map-wrapper">
+    <div class="map-container" id="mapContainer">
+        <!-- 世界地图背景图片 -->
+        <img src="../images/world_map.webp" alt="แผนที่โลก" class="world-map-bg">
+        
+        <!-- 工厂标记点 (所有文字已改为泰语) -->
+        <div class="map-marker" data-name="สำนักงานใหญ่ตงก่วน" data-img="images/factory_dongguan.jpg" data-desc="ศูนย์วิจัยและพัฒนา การผลิตสายเคเบิล PVC และไร้ฮาโลเจน พื้นที่ 25,000 ตร.ม." style="top: 53%; left: 73.5%;">
+            <div class="pulse-dot"></div>
+            <div class="marker-label">สำนักงานใหญ่ตงก่วน</div>
         </div>
-        <div id="factoryDetail" class="factory-detail-card">
-            <h3><i class="fas fa-building"></i> 东莞总部基地</h3>
-            <p>主要研发基地 | 无卤线材生产 | PVC线材集中生产 | 月产能超300万米</p>
-            <p><i class="fas fa-map-marker-alt"></i> 广东省东莞市虎门镇路东管理区新园北五路7号</p>
+        <div class="map-marker" data-name="ฐานการผลิตเสฉวน" data-img="images/factory_sichuan.jpg" data-desc="ศูนย์การผลิตในแผ่นดินใหญ่ พื้นที่ 18,000 ตร.ม. รองรับความต้องการตลาดภาคตะวันตก" style="top: 56%; left: 78.6%;">
+            <div class="pulse-dot"></div>
+            <div class="marker-label">ฐานการผลิตเสฉวน</div>
         </div>
-        <p class="global-note">* วางเมาส์เหนือแผนที่เพื่อดูข้อมูลเบื้องต้น คลิกเพื่อดูรายละเอียด</p>
+        <div class="map-marker" data-name="โรงงานไทย" data-img="images/factory_thailand.jpg" data-desc="เปิดดำเนินการปี 2023 พื้นที่ 20,000 ตร.ม. เน้นสายเคเบิลยานยนต์และการแพทย์ บริการตลาดอาเซียน" style="top: 61%; left: 75%;">
+            <div class="pulse-dot"></div>
+            <div class="marker-label">โรงงานไทย</div>
+        </div>
+        <div class="map-marker" data-name="ศูนย์บริการสหรัฐฯ" data-img="images/factory_usa.jpg" data-desc="รัฐนิวเจอร์ซีย์ ศูนย์ขายและสนับสนุนด้านเทคนิค ตอบสนองลูกค้าในอเมริกาเหนืออย่างรวดเร็ว" style="top: 48.5%; left: 25%;">
+            <div class="pulse-dot"></div>
+            <div class="marker-label">ศูนย์บริการสหรัฐฯ</div>
+        </div>
     </div>
-</section>
+    <!-- 自定义提示框 (泰语) -->
+    <div id="mapTooltip" class="map-tooltip" style="display: none;">
+        <img id="tooltipImg" src="" alt="โรงงาน">
+        <div class="tooltip-content">
+            <h4 id="tooltipTitle"></h4>
+            <p id="tooltipDesc"></p>
+        </div>
+    </div>
+</div>
 
-<!-- 四大生产基地详细卡片 (与 about 的全球化卡片风格一致) -->
+<!-- 四大生产基地详细卡片 (所有文字泰语) -->
 <section class="section factories-grid-section">
     <div class="container">
         <h2 class="section-title">ฐานการผลิตของเรา</h2>
         <div class="factories-grid">
             <div class="factory-card">
-                <div class="factory-img" style="background-image: url('images/dongguan-factory.jpg');"></div>
+                <div class="factory-img" style="background-image: url('../images/dongguan-factory.webp');"></div>
                 <div class="factory-info">
-                    <h3>东莞总部基地</h3>
-                    <div class="location"><i class="fas fa-map-pin"></i> 广东东莞 · 虎门</div>
-                    <p>成立于2002年，集研发、生产、销售于一体的总部基地，拥有先进的绞铜、押出、编织生产线，年产值超3000万美金。</p>
-                    <span class="factory-badge">UL认证工厂</span>
+                    <h3>สำนักงานใหญ่ตงก่วน</h3>
+                    <div class="location"><i class="fas fa-map-pin"></i> หูเหมิน, ตงก่วน</div>
+                    <p>ก่อตั้งปี 2002 เป็นศูนย์กลางการวิจัยพัฒนา ผลิต และจำหน่าย มีสายการผลิต绞銅、押出、ถักเปียที่ทันสมัย มูลค่าผลผลิตกว่า 30 ล้านเหรียญสหรัฐต่อปี</p>
+                    <span class="factory-badge">โรงงานรับรอง UL</span>
                     <span class="factory-badge">ISO9001</span>
                 </div>
             </div>
             <div class="factory-card">
-                <div class="factory-img" style="background-image: url('images/sichuan-factory.jpg');"></div>
+                <div class="factory-img" style="background-image: url('../images/sichuan-factory.webp');"></div>
                 <div class="factory-info">
-                    <h3>四川广安基地</h3>
-                    <div class="location"><i class="fas fa-map-pin"></i> 四川广安 · 前锋区</div>
-                    <p>2012年建立，服务内地市场需求，扩大产能，专注于工业线缆和汽车线束生产，占地10,000㎡。</p>
+                    <h3>ฐานการผลิตเสฉวน</h3>
+                    <div class="location"><i class="fas fa-map-pin"></i> อำเภอต้าจู่, เสฉวน</div>
+                    <p>จัดตั้งปี 2012 เพื่อรองรับตลาดภายในประเทศ ขยายกำลังการผลิต เชี่ยวชาญสายเคเบิลอุตสาหกรรมและชุดสายไฟรถยนต์ พื้นที่ 10,000 ตร.ม.</p>
                     <span class="factory-badge">IATF16949</span>
-                    <span class="factory-badge">环保工厂</span>
+                    <span class="factory-badge">โรงงานรักษ์โลก</span>
                 </div>
             </div>
             <div class="factory-card">
-                <div class="factory-img" style="background-image: url('images/thailand-factory.jpg');"></div>
+                <div class="factory-img" style="background-image: url('../images/thailand-factory.webp');"></div>
                 <div class="factory-info">
-                    <h3>泰国春武里工厂</h3>
-                    <div class="location"><i class="fas fa-map-pin"></i> Chonburi, Thailand</div>
-                    <p>2023年新建，占地15,000㎡，规避关税风险，服务东南亚及全球客户，主要生产医疗、安防、新能源线缆。</p>
+                    <h3>โรงงานไทย ชลบุรี</h3>
+                    <div class="location"><i class="fas fa-map-pin"></i> ชลบุรี, ไทย</div>
+                    <p>เริ่มดำเนินการปี 2023 พื้นที่ 15,000 ตร.ม. ลดความเสี่ยงด้านภาษี ให้บริการลูกค้าในอาเซียนและทั่วโลก ผลิตสายการแพทย์ อุปกรณ์รักษาความปลอดภัย และพลังงานใหม่</p>
                     <span class="factory-badge">ISO13485</span>
-                    <span class="factory-badge">绿色工厂</span>
+                    <span class="factory-badge">โรงงานสีเขียว</span>
                 </div>
             </div>
             <div class="factory-card">
-                <div class="factory-img" style="background-image: url('images/usa-office.jpg');"></div>
+                <div class="factory-img" style="background-image: url('../images/usa-office.webp');"></div>
                 <div class="factory-info">
-                    <h3>美国服务中心</h3>
-                    <div class="location"><i class="fas fa-map-pin"></i> Newark, New Jersey</div>
-                    <p>全球终端品牌服务中心，快速响应北美市场需求，提供本地化技术支持与仓储服务。</p>
-                    <span class="factory-badge">24h响应</span>
-                    <span class="factory-badge">本地仓储</span>
+                    <h3>ศูนย์บริการสหรัฐฯ</h3>
+                    <div class="location"><i class="fas fa-map-pin"></i> นวร์ก, รัฐนิวเจอร์ซีย์</div>
+                    <p>ศูนย์บริการแบรนด์ระดับโลก ตอบสนองความต้องการในอเมริกาเหนืออย่างรวดเร็ว พร้อมคลังสินค้าและการสนับสนุนด้านเทคนิคในท้องถิ่น</p>
+                    <span class="factory-badge">ตอบสนอง 24 ชม.</span>
+                    <span class="factory-badge">คลังสินค้าในประเทศ</span>
                 </div>
             </div>
         </div>
@@ -179,23 +182,23 @@
         <h2 class="section-title">ภาพรวมสายการผลิตอัจฉริยะ</h2>
         <div class="gallery-slider">
             <div class="gallery-item">
-                <img src="images/production-line1.jpg" alt="自动化绞铜生产线">
-                <div class="gallery-caption">สายการผลิต绞铜อัตโนมัติ</div>
+                <img src="images/production-line1.jpg" alt="สายการผลิต绞銅อัตโนมัติ">
+                <div class="gallery-caption">สายการผลิต绞銅อัตโนมัติ</div>
             </div>
             <div class="gallery-item">
-                <img src="images/production-line2.jpg" alt="铁氟龙押出生产线">
+                <img src="images/production-line2.jpg" alt="สายการผลิต押出 PTFE">
                 <div class="gallery-caption">สายการผลิต押出 PTFE</div>
             </div>
             <div class="gallery-item">
-                <img src="images/production-line3.jpg" alt="发泡PE押出线">
+                <img src="images/production-line3.jpg" alt="สายการผลิต押出 PE โฟม">
                 <div class="gallery-caption">สายการผลิต押出 PE โฟม</div>
             </div>
             <div class="gallery-item">
-                <img src="images/lab.jpg" alt="实验室检测中心">
+                <img src="images/lab.jpg" alt="ศูนย์ทดสอบห้องปฏิบัติการ">
                 <div class="gallery-caption">ศูนย์ทดสอบห้องปฏิบัติการ</div>
             </div>
             <div class="gallery-item">
-                <img src="images/thailand-plant.jpg" alt="泰国工厂全景">
+                <img src="images/thailand-plant.jpg" alt="ภาพรวมโรงงานไทย">
                 <div class="gallery-caption">ภาพรวมโรงงานไทย</div>
             </div>
         </div>
@@ -230,7 +233,7 @@
     </div>
 </section>
 
-<!-- ========== 底部栏 (与 about 完全一致) ========== -->
+<!-- ========== 底部栏 (泰语版) ========== -->
 <footer class="footer">
     <div class="container">
         <div class="footer-grid">
@@ -250,7 +253,7 @@
                     <a href="#">USB data cable</a>
                 </div>
                 <div class="footer-pdf">
-                    <a href="#" id="footerPdfBtn" class="btn-sm-pdf"><i class="fas fa-download"></i> ดาวน์โหลดบริษัทแนะนำ (PDF)</a>
+                    <a href="#" id="footerPdfBtn" class="btn-sm-pdf"><i class="fas fa-download"></i> ดาวน์โหลดโบรชัวร์บริษัท (PDF)</a>
                 </div>
             </div>
             <div class="footer-col">
@@ -287,14 +290,14 @@
     </div>
 </footer>
 
-<!-- 浮动联络栏 (同首页) -->
+<!-- 浮动联络栏 (泰语提示) -->
 <div class="floating-contact-bar">
-    <div class="contact-btn line-btn" id="lineBtn"><i class="fab fa-line"></i><span class="tooltip">Line 咨询</span></div>
-    <div class="contact-btn inquiry-btn" id="inquiryBtn"><i class="fas fa-envelope"></i><span class="tooltip">询价</span></div>
-    <div class="contact-btn top-btn" id="topBtn"><i class="fas fa-arrow-up"></i><span class="tooltip">回到顶部</span></div>
+    <div class="contact-btn line-btn" id="lineBtn"><i class="fab fa-line"></i><span class="tooltip">ปรึกษาผ่าน Line</span></div>
+    <div class="contact-btn inquiry-btn" id="inquiryBtn"><i class="fas fa-envelope"></i><span class="tooltip">สอบถามราคา</span></div>
+    <div class="contact-btn top-btn" id="topBtn"><i class="fas fa-arrow-up"></i><span class="tooltip">กลับด้านบน</span></div>
 </div>
 
-<!-- 询价模态框 -->
+<!-- 询价模态框 (泰语) -->
 <div class="modal-overlay" id="inquiryModal">
     <div class="modal-container">
         <div class="modal-header"><h3>รับโซลูชันที่กำหนดเองทันที</h3><button class="modal-close" id="closeModal">&times;</button></div>
@@ -304,15 +307,15 @@
             <textarea rows="3" placeholder="กรุณาอธิบายความต้องการด้านสายเคเบิลของคุณ..."></textarea>
             <button type="submit" class="submit-btn">ส่งคำขอใบเสนอราคา</button>
         </form>
-        <div class="modal-note">我们会在24小时内回复您</div>
+        <div class="modal-note">ทีมงานจะติดต่อกลับภายใน 24 ชั่วโมง</div>
     </div>
 </div>
 
-<!-- 二维码模态框 (Line) -->
+<!-- 二维码模态框 (Line 泰语) -->
 <div class="modal-overlay" id="qrModal">
     <div class="modal-container qr-container">
-        <div class="modal-header"><h3>加入 Line 好友</h3><button class="modal-close" id="closeQRModal">&times;</button></div>
-        <div class="qr-code"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200' viewBox='0 0 200 200'%3E%3Crect width='200' height='200' fill='%2306C755'/%3E%3Ctext x='50%25' y='50%25' font-size='14' fill='white' text-anchor='middle' dy='.3em'%3ELine QR Code%3C/text%3E%3C/svg%3E" alt="Line QR"><p>扫描二维码添加好友</p><a href="https://line.me/R/ti/p/@your_line_id" target="_blank" class="line-link">在 Line 中打开</a></div>
+        <div class="modal-header"><h3>เพิ่มเพื่อนทาง Line</h3><button class="modal-close" id="closeQRModal">&times;</button></div>
+        <div class="qr-code"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200' viewBox='0 0 200 200'%3E%3Crect width='200' height='200' fill='%2306C755'/%3E%3Ctext x='50%25' y='50%25' font-size='14' fill='white' text-anchor='middle' dy='.3em'%3ELine QR Code%3C/text%3E%3C/svg%3E" alt="Line QR"><p>สแกน QR Code เพื่อเพิ่มเพื่อน</p><a href="https://line.me/R/ti/p/@your_line_id" target="_blank" class="line-link">เปิดใน Line</a></div>
     </div>
 </div>
 

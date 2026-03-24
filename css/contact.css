@@ -45,6 +45,25 @@
     grid-template-columns: 1fr 1fr;
     gap: 40px;
 }
+.contact-form {
+    text-align: center; /* 让按钮居中 */
+}
+.btn-submit {
+    width: 100%;
+    max-width: 300px;   /* 限制最大宽度，避免过宽 */
+    justify-content: center;
+    margin: 0 auto;     /* 确保居中 */
+    display: flex;      /* 保持图标与文字居中 */
+    align-items: center;
+    gap: 10px;
+}
+
+/* 移动端可适当调整 */
+@media (max-width: 768px) {
+    .btn-submit {
+        max-width: 100%; /* 移动端全宽 */
+    }
+}
 .contact-form-wrapper,
 .contact-info-wrapper {
     background: white;
@@ -182,15 +201,39 @@
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 30px;
-    margin-top: 20px;
+    align-items: stretch; /* 使网格行高度由最高卡片决定 */
 }
 .location-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;      /* 水平居中所有内容 */
+    text-align: center;
+    height: 100%;             /* 撑满网格轨道，保证所有卡片高度一致 */
     background: white;
     border-radius: 28px;
     padding: 28px 20px;
-    text-align: center;
     transition: all 0.3s;
     box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+}
+/* 按钮自动推到卡片底部并居中 */
+.location-card .map-link {
+    margin-top: auto;         /* 将按钮推到底部 */
+    margin-left: auto;
+    margin-right: auto;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: #eef2fc;
+    padding: 8px 20px;
+    border-radius: 40px;
+    color: #2c7da0;
+    text-decoration: none;
+    font-size: 0.85rem;
+    transition: 0.2s;
+}
+.location-card .map-link:hover {
+    background: #2c7da0;
+    color: white;
 }
 .location-card:hover {
     transform: translateY(-5px);
@@ -212,18 +255,7 @@
     line-height: 1.6;
     margin-bottom: 20px;
 }
-.map-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    background: #eef2fc;
-    padding: 8px 20px;
-    border-radius: 40px;
-    color: #2c7da0;
-    text-decoration: none;
-    font-size: 0.85rem;
-    transition: 0.2s;
-}
+
 .map-link:hover {
     background: #2c7da0;
     color: white;

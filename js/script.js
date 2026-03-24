@@ -1,135 +1,31 @@
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', function() {
+    // ========== 1. 移动端菜单 ==========
     const hamburger = document.getElementById('hamburger');
     const navWrapper = document.getElementById('navWrapper');
 
-    // 点击汉堡按钮弹出/关闭菜单
-    if (hamburger) {
-        hamburger.addEventListener('click', () => {
+    if (hamburger && navWrapper) {
+        hamburger.addEventListener('click', function(e) {
+            e.stopPropagation();
             navWrapper.classList.toggle('show');
-            // 汉堡动画效果（可选：点击变叉）
             hamburger.classList.toggle('open');
         });
-    }
 
-    // 点击页面其他地方关闭菜单
-    document.addEventListener('click', (e) => {
-        if (!navWrapper.contains(e.target) && !hamburger.contains(e.target)) {
-            navWrapper.classList.remove('show');
-        }
-    });
-});
-
-
-
-
-document.addEventListener('DOMContentLoaded', function() {
-    // 获取元素
-    const lineBtn = document.getElementById('lineBtn');
-    const inquiryBtn = document.getElementById('inquiryBtn');
-    const topBtn = document.getElementById('topBtn');
-    const inquiryModal = document.getElementById('inquiryModal');
-    const qrModal = document.getElementById('qrModal');
-    const closeModal = document.getElementById('closeModal');
-    const closeQRModal = document.getElementById('closeQRModal');
-    const inquiryForm = document.getElementById('inquiryForm');
-
-    // 1. Line 按钮：尝试唤起客户端，失败则显示二维码
-    lineBtn.addEventListener('click', function() {
-        // 判断是否为移动设备
-        const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-        // 替换为您的 Line 官方 ID（例如 @abc123）
-        const lineId = '@your_line_id';   // 请修改为实际 ID
-        const lineUrl = `https://line.me/R/ti/p/${lineId}`;
-        
-        if (isMobile) {
-            // 尝试打开 Line 客户端
-            window.location.href = lineUrl;
-            // 设置一个延迟，如果未成功跳转（如未安装Line），则显示二维码
-            setTimeout(() => {
-                if (document.hidden === false) {
-                    showQRModal();
-                }
-            }, 500);
-        } else {
-            // PC 端直接显示二维码
-            showQRModal();
-        }
-    });
-
-    function showQRModal() {
-        if (qrModal) {
-            qrModal.style.display = 'flex';
-        }
-    }
-
-    // 关闭二维码模态框
-    if (closeQRModal) {
-        closeQRModal.addEventListener('click', function() {
-            qrModal.style.display = 'none';
-        });
-    }
-    // 点击遮罩关闭
-    qrModal.addEventListener('click', function(e) {
-        if (e.target === qrModal) {
-            qrModal.style.display = 'none';
-        }
-    });
-
-    // 2. 询价按钮：尝试滚动到页面底部表单，否则弹出模态框
-    inquiryBtn.addEventListener('click', function() {
-        const inquirySection = document.getElementById('inquiry-form');
-        if (inquirySection) {
-            // 平滑滚动到表单
-            inquirySection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            // 可选：高亮提示
-            inquirySection.style.transition = 'box-shadow 0.3s';
-            inquirySection.style.boxShadow = '0 0 0 3px #2c7da0';
-            setTimeout(() => {
-                inquirySection.style.boxShadow = '';
-            }, 1500);
-        } else {
-            // 没有表单元素，弹出询价模态框
-            if (inquiryModal) {
-                inquiryModal.style.display = 'flex';
+        // 点击页面其他地方关闭菜单
+        document.addEventListener('click', function(e) {
+            if (!navWrapper.contains(e.target) && !hamburger.contains(e.target)) {
+                navWrapper.classList.remove('show');
+                hamburger.classList.remove('open');
             }
-        }
-    });
-
-    // 关闭询价模态框
-    if (closeModal) {
-        closeModal.addEventListener('click', function() {
-            inquiryModal.style.display = 'none';
-        });
-    }
-    inquiryModal.addEventListener('click', function(e) {
-        if (e.target === inquiryModal) {
-            inquiryModal.style.display = 'none';
-        }
-    });
-
-    // 询价表单提交（演示）
-    if (inquiryForm) {
-        inquiryForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            alert('感谢您的询价！我们会尽快与您联系。');
-            inquiryModal.style.display = 'none';
-            inquiryForm.reset();
         });
     }
 
-    // 3. 回到顶部按钮
-    topBtn.addEventListener('click', function() {
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth'
-        });
-    });
-});
-(function() {
-        const slides = document.querySelectorAll('.swiper-slide');
-        const prevBtn = document.querySelector('.swiper-button-prev');
-        const nextBtn = document.querySelector('.swiper-button-next');
-        const pagination = document.querySelector('.swiper-pagination');
+    // ========== 2. 轮播图 ==========
+    const slides = document.querySelectorAll('.swiper-slide');
+    const prevBtn = document.querySelector('.swiper-button-prev');
+    const nextBtn = document.querySelector('.swiper-button-next');
+    const pagination = document.querySelector('.swiper-pagination');
+
+    if (slides.length > 0 && prevBtn && nextBtn && pagination) {
         let current = 0;
         let timer = null;
         const total = slides.length;
@@ -146,11 +42,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
         function updateSlides() {
             const wrapper = document.querySelector('.swiper-wrapper');
-            wrapper.style.transform = `translateX(-${current * 100}%)`;
-            dots.forEach((dot, idx) => {
-                if (idx === current) dot.classList.add('active');
-                else dot.classList.remove('active');
-            });
+            if (wrapper) {
+                wrapper.style.transform = `translateX(-${current * 100}%)`;
+                dots.forEach((dot, idx) => {
+                    if (idx === current) dot.classList.add('active');
+                    else dot.classList.remove('active');
+                });
+            }
         }
 
         function goToSlide(index) {
@@ -161,6 +59,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         function nextSlide() { goToSlide(current + 1); }
         function prevSlide() { goToSlide(current - 1); }
+
         function resetTimer() {
             if (timer) clearInterval(timer);
             timer = setInterval(nextSlide, 5000);
@@ -170,37 +69,113 @@ document.addEventListener('DOMContentLoaded', function() {
         nextBtn.addEventListener('click', nextSlide);
         resetTimer();
         updateSlides();
-    })();
+    }
 
-    // ========== 数字滚动动画 (Intersection Observer) ==========
+    // ========== 3. 数字滚动动画 ==========
     const statNumbers = document.querySelectorAll('.stat-number');
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const el = entry.target;
-                const target = parseInt(el.getAttribute('data-target'));
-                if (isNaN(target)) return;
-                let currentVal = 0;
-                const step = Math.ceil(target / 50);
-                const interval = setInterval(() => {
-                    currentVal += step;
-                    if (currentVal >= target) {
-                        currentVal = target;
-                        clearInterval(interval);
+    if (statNumbers.length) {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const el = entry.target;
+                    const target = parseInt(el.getAttribute('data-target'), 10);
+                    if (isNaN(target)) return;
+                    let currentVal = 0;
+                    const step = Math.ceil(target / 50);
+                    const interval = setInterval(() => {
+                        currentVal += step;
+                        if (currentVal >= target) {
+                            currentVal = target;
+                            clearInterval(interval);
+                        }
+                        el.innerText = currentVal;
+                    }, 20);
+                    observer.unobserve(el);
+                }
+            });
+        }, { threshold: 0.5 });
+        statNumbers.forEach(num => observer.observe(num));
+    }
+
+    // ========== 4. 浮动按钮与模态框 ==========
+    const lineBtn = document.getElementById('lineBtn');
+    const inquiryBtn = document.getElementById('inquiryBtn');
+    const topBtn = document.getElementById('topBtn');
+    const inquiryModal = document.getElementById('inquiryModal');
+    const qrModal = document.getElementById('qrModal');
+    const closeModal = document.getElementById('closeModal');
+    const closeQRModal = document.getElementById('closeQRModal');
+    const inquiryForm = document.getElementById('inquiryForm');
+
+    // Line 按钮
+    if (lineBtn) {
+        lineBtn.addEventListener('click', function() {
+            const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+            const lineId = '@your_line_id';   // 请替换为实际ID
+            const lineUrl = `https://line.me/R/ti/p/${lineId}`;
+            if (isMobile) {
+                window.location.href = lineUrl;
+                setTimeout(() => {
+                    if (document.hidden === false) {
+                        if (qrModal) qrModal.style.display = 'flex';
                     }
-                    el.innerText = currentVal;
-                }, 20);
-                observer.unobserve(el);
+                }, 500);
+            } else {
+                if (qrModal) qrModal.style.display = 'flex';
             }
         });
-    }, { threshold: 0.5 });
-    statNumbers.forEach(num => observer.observe(num));
+    }
 
-    // 处理PDF下载按钮（演示，实际需替换真实路径）
-    const downloadBtn = document.querySelector('.btn-secondary');
-    if (downloadBtn) {
-        downloadBtn.addEventListener('click', (e) => {
+    // 关闭二维码模态框
+    if (closeQRModal && qrModal) {
+        closeQRModal.addEventListener('click', () => { qrModal.style.display = 'none'; });
+        qrModal.addEventListener('click', (e) => { if (e.target === qrModal) qrModal.style.display = 'none'; });
+    }
+
+    // 询价按钮
+    if (inquiryBtn) {
+        inquiryBtn.addEventListener('click', function() {
+            const inquirySection = document.getElementById('inquiry-form');
+            if (inquirySection) {
+                inquirySection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                inquirySection.style.transition = 'box-shadow 0.3s';
+                inquirySection.style.boxShadow = '0 0 0 3px #2c7da0';
+                setTimeout(() => { inquirySection.style.boxShadow = ''; }, 1500);
+            } else if (inquiryModal) {
+                inquiryModal.style.display = 'flex';
+            }
+        });
+    }
+
+    // 关闭询价模态框
+    if (closeModal && inquiryModal) {
+        closeModal.addEventListener('click', () => { inquiryModal.style.display = 'none'; });
+        inquiryModal.addEventListener('click', (e) => { if (e.target === inquiryModal) inquiryModal.style.display = 'none'; });
+    }
+
+    // 询价表单提交（演示）
+    if (inquiryForm) {
+        inquiryForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('ขอบคุณที่ติดต่อเรา ทีมงานจะตอบกลับภายใน 24 ชั่วโมง');
+            inquiryModal.style.display = 'none';
+            inquiryForm.reset();
+        });
+    }
+
+    // 回到顶部按钮
+    if (topBtn) {
+        topBtn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    }
+
+    // ========== 5. 演示PDF下载 ==========
+    const downloadBtns = document.querySelectorAll('.btn-secondary');
+    downloadBtns.forEach(btn => {
+        btn.addEventListener('click', (e) => {
             e.preventDefault();
             alert('演示模式：实际项目中请替换为真实PDF文件路径。');
         });
-    }
+    });
+});
