@@ -41,6 +41,9 @@ app.post('/api/inquiry', async (req, res) => {
     }
 });
 
-app.listen(process.env.PORT || 3000, () => {
-    console.log(`Proxy server running on port ${process.env.PORT || 3000}`);
+// 添加健康检查端点（可选）
+app.get('/api/health', (req, res) => {
+    res.json({ status: 'ok' });
 });
+
+module.exports = app; // 导出 app，供 Vercel 使用
