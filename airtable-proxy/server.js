@@ -4,7 +4,7 @@ require('dotenv').config();
 
 const app = express();
 
-app.use(cors()); // 允许所有来源，简化调试
+app.use(cors()); // 允许所有来源
 app.use(express.json());
 
 const AIRTABLE_API_KEY = process.env.AIRTABLE_API_KEY;
@@ -41,9 +41,9 @@ app.post('/api/inquiry', async (req, res) => {
     }
 });
 
-// 添加健康检查端点（可选）
+// 健康检查
 app.get('/api/health', (req, res) => {
     res.json({ status: 'ok' });
 });
 
-module.exports = app; // 导出 app，供 Vercel 使用
+module.exports = app;

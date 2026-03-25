@@ -1,8 +1,9 @@
 {
   "name": "airtable-proxy",
   "version": "1.0.0",
-  "description": "Proxy for Airtable API to hide API key",
-  "main": "server.js",
+  "engines": {
+    "node": ">=18.x"
+  },
   "scripts": {
     "start": "node server.js"
   },
