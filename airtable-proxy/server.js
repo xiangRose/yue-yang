@@ -3,18 +3,21 @@ const cors = require('cors');
 require('dotenv').config();
 
 const app = express();
-const PORT = process.env.PORT || 3000;
 
-// 允许跨域（生产环境可限制具体域名）
-app.use(cors());
+// 配置 CORS：允许所有来源（开发测试用），实际生产可限制为您的域名
+app.use(cors({
+    origin: ['http://127.0.0.1:5500', 'http://localhost:5500'], // 允许本地开发服务器
+    methods: ['GET', 'POST', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Authorization']
+}));
+app.options('*', cors()); // 处理预检请求
+
 app.use(express.json());
 
-// 从环境变量读取敏感信息
 const AIRTABLE_API_KEY = process.env.AIRTABLE_API_KEY;
 const BASE_ID = process.env.AIRTABLE_BASE_ID;
 const TABLE_NAME = process.env.AIRTABLE_TABLE_NAME;
 
-// 接收前端表单数据并转发到 Airtable
 app.post('/api/inquiry', async (req, res) => {
     try {
         const { fields } = req.body;
@@ -45,6 +48,6 @@ app.post('/api/inquiry', async (req, res) => {
     }
 });
 
-app.listen(PORT, () => {
-    console.log(`Proxy server running on port ${PORT}`);
+app.listen(process.env.PORT || 3000, () => {
+    console.log(`Proxy server running on port ${process.env.PORT || 3000}`);
 });
