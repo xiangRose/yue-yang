@@ -19,58 +19,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // ========== 2. 轮播图 ==========
-    const slides = document.querySelectorAll('.swiper-slide');
-    const prevBtn = document.querySelector('.swiper-button-prev');
-    const nextBtn = document.querySelector('.swiper-button-next');
-    const pagination = document.querySelector('.swiper-pagination');
-
-    if (slides.length > 0 && prevBtn && nextBtn && pagination) {
-        let current = 0;
-        let timer = null;
-        const total = slides.length;
-
-        // 创建指示点
-        for (let i = 0; i < total; i++) {
-            const dot = document.createElement('div');
-            dot.classList.add('dot');
-            if (i === 0) dot.classList.add('active');
-            dot.addEventListener('click', () => goToSlide(i));
-            pagination.appendChild(dot);
-        }
-        const dots = document.querySelectorAll('.dot');
-
-        function updateSlides() {
-            const wrapper = document.querySelector('.swiper-wrapper');
-            if (wrapper) {
-                wrapper.style.transform = `translateX(-${current * 100}%)`;
-                dots.forEach((dot, idx) => {
-                    if (idx === current) dot.classList.add('active');
-                    else dot.classList.remove('active');
-                });
-            }
-        }
-
-        function goToSlide(index) {
-            current = (index + total) % total;
-            updateSlides();
-            resetTimer();
-        }
-
-        function nextSlide() { goToSlide(current + 1); }
-        function prevSlide() { goToSlide(current - 1); }
-
-        function resetTimer() {
-            if (timer) clearInterval(timer);
-            timer = setInterval(nextSlide, 5000);
-        }
-
-        prevBtn.addEventListener('click', prevSlide);
-        nextBtn.addEventListener('click', nextSlide);
-        resetTimer();
-        updateSlides();
-    }
-
     // ========== 3. 数字滚动动画 ==========
     const statNumbers = document.querySelectorAll('.stat-number');
     if (statNumbers.length) {

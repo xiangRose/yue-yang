@@ -138,7 +138,136 @@ body {
     .hero-stats .stat { font-size: 0.9rem; padding: 0.4rem 1rem; }
     .hero-stats .stat span { font-size: 1.2rem; }
 }
+/* 产品销售结构与全球客户模块 */
+.product-structure {
+    background: #ffffff;
+    padding: 60px 0;
+}
+.section-subtitle {
+    text-align: center;
+    color: #5f7f9e;
+    max-width: 700px;
+    margin: -1rem auto 2rem;
+}
+.structure-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 40px;
+    margin-bottom: 60px;
+}
+.sales-chart, .products-categories {
+    background: #f9fbfe;
+    border-radius: 28px;
+    padding: 28px 24px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.03);
+}
+.sales-chart h3, .products-categories h3 {
+    font-size: 1.3rem;
+    margin-bottom: 1.5rem;
+    color: #003753;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.chart-bars {
+    margin: 20px 0;
+}
+.chart-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+.chart-label {
+    width: 180px;
+    font-weight: 600;
+    color: #2c3e4e;
+}
+.progress-bar {
+    flex: 1;
+    height: 10px;
+    background: #e0e7ef;
+    border-radius: 10px;
+    overflow: hidden;
+}
+.progress {
+    height: 100%;
+    background: #2c7da0;
+    border-radius: 10px;
+}
+.chart-percent {
+    width: 45px;
+    font-weight: 700;
+    color: #2c7da0;
+}
+.chart-note {
+    font-size: 0.75rem;
+    color: #8ba9c2;
+    text-align: right;
+    margin-top: 15px;
+}
+.category-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+.category-card {
+    background: white;
+    border-radius: 20px;
+    padding: 18px;
+    transition: all 0.3s;
+    border: 1px solid #eef2f8;
+}
+.category-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(44,125,160,0.1);
+    border-color: #2c7da0;
+}
+.category-card i {
+    font-size: 1.8rem;
+    color: #2c7da0;
+    margin-bottom: 12px;
+}
+.category-card h4 {
+    font-size: 1rem;
+    margin-bottom: 8px;
+    color: #003753;
+}
+.category-card p {
+    font-size: 0.8rem;
+    color: #5f7f9e;
+    line-height: 1.4;
+    margin-bottom: 12px;
+}
+.brand-tag-small {
+    font-size: 0.7rem;
+    color: #2c7da0;
+    background: #f0f7fc;
+    padding: 4px 8px;
+    border-radius: 20px;
+    display: inline-block;
+}
 
+@media (max-width: 768px) {
+    .structure-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    .chart-item {
+        flex-wrap: wrap;
+    }
+    .chart-label {
+        width: 100%;
+        margin-bottom: 5px;
+    }
+    .progress-bar {
+        width: 100%;
+    }
+    .category-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+}
 /* 产品矩阵卡片 */
 .product-matrix {
     padding: 40px 0 60px;
@@ -250,14 +379,16 @@ body {
     margin-bottom: 2.5rem;
 }
 .section-title {
+    text-align: center;
     font-size: 2rem;
     font-weight: 700;
     color: #003753;
     margin-bottom: 0.5rem;
     position: relative;
-    display: inline-block;
+    
 }
 .section-title:after {
+    text-align: center;
     content: '';
     position: absolute;
     bottom: -10px;
@@ -269,6 +400,7 @@ body {
     border-radius: 3px;
 }
 .section-title span {
+    text-align: center;
     font-size: 1rem;
     font-weight: 400;
     color: #5f7f9e;
@@ -285,22 +417,25 @@ body {
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 30px;
 }
+
+/* 卡片统一布局 - 保证图片、文字、按钮对齐 */
 .product-card {
+    display: flex;
+    flex-direction: column;
     background: white;
     border-radius: 24px;
     overflow: hidden;
     box-shadow: 0 8px 20px rgba(0,0,0,0.05);
-    transition: all 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+    transition: all 0.3s ease;
     position: relative;
     cursor: pointer;
+    height: 100%; /* 确保所有卡片高度一致 */
 }
-.product-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 20px 35px rgba(44,125,160,0.15);
-}
+
 .product-img {
-    height: 220px;
+    height: 200px;
     overflow: hidden;
+    flex-shrink: 0; /* 图片不压缩 */
 }
 .product-img img {
     width: 100%;
@@ -308,12 +443,14 @@ body {
     object-fit: cover;
     transition: transform 0.4s;
 }
-.product-card:hover .product-img img {
-    transform: scale(1.03);
-}
+
 .product-info {
     padding: 1.2rem;
+    flex: 1; /* 让文字区域占据剩余空间，使按钮对齐到底部 */
+    display: flex;
+    flex-direction: column;
 }
+
 .product-info h3 {
     font-size: 1.2rem;
     margin-bottom: 0.5rem;
@@ -331,11 +468,13 @@ body {
     color: #4a627a;
     line-height: 1.5;
     margin-bottom: 0.75rem;
+    flex-grow: 1; /* 让描述文字撑满，将标签推到底部 */
 }
 .product-tags {
     display: flex;
     flex-wrap: wrap;
     gap: 8px;
+    margin-top: auto; /* 将标签推到卡片底部 */
 }
 .product-tags span {
     background: #eef4fc;
@@ -345,13 +484,15 @@ body {
     color: #2c7da0;
     font-weight: 500;
 }
+
+/* 悬停遮罩（不参与布局，位置绝对） */
 .card-hover-overlay {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(44,125,160,0.96);
+    background: rgba(44,125,160,0.95);
     color: white;
     display: flex;
     flex-direction: column;
@@ -388,6 +529,22 @@ body {
     background: #ffd966;
     color: #1f5e7a;
     transform: scale(1.02);
+}
+
+/* 移动端适配 */
+@media (max-width: 768px) {
+    .product-img {
+        height: 180px;
+    }
+    .product-info {
+        padding: 1rem;
+    }
+    .product-info h3 {
+        font-size: 1.1rem;
+    }
+    .product-info p {
+        font-size: 0.85rem;
+    }
 }
 
 /* 行业应用案例 */

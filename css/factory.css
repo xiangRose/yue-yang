@@ -16,18 +16,18 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(135deg, rgba(0,0,0,0.6) 0%, rgba(0,95,140,0.7) 100%);
+    background: linear-gradient(135deg, rgba(151, 198, 231, 0.6) 0%, rgba(107, 198, 240, 0.6) 100%);
 }
 .factory-hero-content {
     position: relative;
     z-index: 2;
-    color: white;
+    color: rgb(1, 1, 1);
     text-align: center;
     max-width: 800px;
     margin: 0 auto;
 }
 .factory-hero-content h2 {
-    font-size: 2.5rem;
+    font-size: 3rem;
     margin-bottom: 1rem;
     font-weight: 800;
 }
@@ -259,46 +259,78 @@
     margin-top: 6px;
 }
 
-/* 生产车间画廊 */
+/* 生产车间画廊 - 强制修复样式 */
 .gallery-section {
-    background: #f9fbfe;
+    background: #f9fbfe !important;
+    overflow: visible !important;
 }
+
 .gallery-slider {
-    display: flex;
-    overflow-x: auto;
-    gap: 20px;
-    padding: 20px 0;
-    scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
+    display: flex !important;
+    overflow-x: auto !important;
+    gap: 20px !important;
+    padding: 20px 0 30px !important;
+    scroll-snap-type: x mandatory !important;
+    -webkit-overflow-scrolling: touch !important;
+    width: 100% !important;
+    scrollbar-width: thin !important;
 }
+
 .gallery-slider::-webkit-scrollbar {
-    height: 6px;
+    height: 6px !important;
 }
+.gallery-slider::-webkit-scrollbar-track {
+    background: #eef2f8 !important;
+    border-radius: 10px !important;
+}
+.gallery-slider::-webkit-scrollbar-thumb {
+    background: #2c7da0 !important;
+    border-radius: 10px !important;
+}
+
 .gallery-item {
-    flex: 0 0 280px;
-    scroll-snap-align: start;
-    border-radius: 24px;
-    overflow: hidden;
-    background: white;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
-    transition: transform 0.3s;
+    flex: 0 0 auto !important;
+    width: 280px !important;
+    scroll-snap-align: start !important;
+    border-radius: 24px !important;
+    overflow: hidden !important;
+    background: white !important;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08) !important;
+    transition: transform 0.3s !important;
 }
+
 .gallery-item:hover {
-    transform: translateY(-5px);
+    transform: translateY(-5px) !important;
 }
+
 .gallery-item img {
-    width: 100%;
-    height: 180px;
-    object-fit: cover;
-    display: block;
+    width: 100% !important;
+    height: 180px !important;
+    object-fit: cover !important;
+    display: block !important;
 }
+
 .gallery-caption {
-    padding: 12px;
-    text-align: center;
-    font-size: 0.85rem;
-    font-weight: 500;
-    color: #2c7da0;
-    background: white;
+    padding: 12px !important;
+    text-align: center !important;
+    font-size: 0.85rem !important;
+    font-weight: 500 !important;
+    color: #2c7da0 !important;
+    background: white !important;
+}
+
+/* 移动端适配 */
+@media (max-width: 768px) {
+    .gallery-item {
+        width: 240px !important;
+    }
+    .gallery-item img {
+        height: 150px !important;
+    }
+    .gallery-slider {
+        gap: 15px !important;
+        padding: 15px 0 25px !important;
+    }
 }
 
 /* 产能数据区 */

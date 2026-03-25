@@ -15,23 +15,23 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(135deg, rgba(0,0,0,0.6) 0%, rgba(0,95,140,0.7) 100%);
+    background: linear-gradient(135deg, #f0f7ff 0%, #ffffff 100%);
 }
 .contact-hero-content {
     position: relative;
     z-index: 2;
-    color: white;
+    color: rgb(4, 4, 4);
     text-align: center;
     max-width: 700px;
     margin: 0 auto;
 }
 .contact-hero-content h2 {
-    font-size: 2.2rem;
+    font-size: 2.5rem;
     margin-bottom: 1rem;
     font-weight: 800;
 }
 .contact-hero-content p {
-    font-size: 1.1rem;
+    font-size: 1.5rem;
     opacity: 0.9;
 }
 @media (max-width: 768px) {

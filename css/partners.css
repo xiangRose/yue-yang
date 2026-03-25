@@ -1,13 +1,29 @@
 /* ========== partners.html 专属样式 ========== */
 
 /* 英雄区 */
+.partners-hero {
+    overflow: hidden;        /* 避免任何溢出 */
+}
 .partners-hero-bg {
     position: relative;
-    height: 400px;
+    height: 650px;           /* 桌面默认高度 */
     background-size: cover;
     background-position: center 30%;
     display: flex;
     align-items: center;
+}
+
+@media (max-width: 768px) {
+    .partners-hero-bg {
+        height: 350px;       /* 手机高度 */
+    }
+}
+
+@media (orientation: landscape) and (max-height: 600px) {
+    .partners-hero-bg {
+        height: 100vh;       /* 横屏时占满视口高度，避免白边 */
+        min-height: 400px;
+    }
 }
 .partners-hero-overlay {
     position: absolute;
@@ -22,8 +38,10 @@
     z-index: 2;
     color: white;
     text-align: center;
-    max-width: 800px;
+    max-width: 1200px;        /* 增大最大宽度，使内容更宽 */
+    width: 90%;               /* 占父容器宽度的90% */
     margin: 0 auto;
+    padding: 0 20px;          /* 增加左右内边距，防止贴边 */
 }
 .partners-hero-content h2 {
     font-size: 2.2rem;
@@ -34,9 +52,20 @@
     font-size: 1.1rem;
     opacity: 0.9;
 }
-@media (max-width: 768px) {
-    .partners-hero-bg { height: 300px; }
-    .partners-hero-content h2 { font-size: 1.6rem; }
+@media (orientation: landscape) and (max-height: 600px) {
+    .partners-hero-bg {
+        height: 85vh;         /* 横屏时适当降低高度，避免内容太靠下 */
+    }
+    .partners-hero-content {
+        max-width: 85%;       /* 横屏时让内容更宽 */
+    }
+    .partners-hero-content h2 {
+        font-size: 2rem;      /* 横屏时标题适当缩小 */
+        margin-bottom: 0.8rem;
+    }
+    .partners-hero-content p {
+        font-size: 1rem;
+    }
 }
 
 /* 客户网格 */
@@ -50,13 +79,14 @@
     margin-top: 20px;
 }
 .client-card {
-    background: white;
-    border-radius: 28px;
-    padding: 30px 20px;
-    text-align: center;
-    transition: all 0.3s;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.05);
-    border: 1px solid #eef2f8;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* 使内容上下分布，保证按钮（若有）在底部 */
+    height: 100%; /* 配合父网格 align-items: stretch 实现等高 */
+}
+.client-card p {
+    flex-grow: 1;   /* 描述文字占满剩余空间，使卡片底部对齐 */
+    margin-bottom: 0;
 }
 .client-card:hover {
     transform: translateY(-8px);
@@ -68,23 +98,13 @@
     height: 120px;
     object-fit: contain;
     margin: 0 auto 20px;
-    filter: grayscale(100%);
-    opacity: 0.7;
     transition: all 0.3s;
 }
-.client-card:hover .client-logo {
-    filter: grayscale(0);
-    opacity: 1;
-}
+
 .client-card h3 {
     font-size: 1.2rem;
     margin-bottom: 8px;
     color: #003753;
-}
-.client-card p {
-    color: #5f7f9e;
-    font-size: 0.85rem;
-    line-height: 1.5;
 }
 .clients-note {
     text-align: center;
@@ -158,15 +178,27 @@
     display: flex;
     overflow-x: auto;
     gap: 20px;
-    padding: 20px 0;
+    padding: 20px 0 30px;
     scroll-snap-type: x mandatory;
     -webkit-overflow-scrolling: touch;
+    /* 关键：让滚动区域占满宽度，内容可滚动 */
+    width: 100%;
+    scrollbar-width: thin;
 }
 .equipment-slider::-webkit-scrollbar {
     height: 6px;
 }
+.equipment-slider::-webkit-scrollbar-track {
+    background: #eef2f8;
+    border-radius: 10px;
+}
+.equipment-slider::-webkit-scrollbar-thumb {
+    background: #2c7da0;
+    border-radius: 10px;
+}
 .equipment-item {
-    flex: 0 0 260px;
+    flex: 0 0 auto;
+    width: 260px;              /* 固定宽度，避免被压缩 */
     scroll-snap-align: start;
     border-radius: 20px;
     overflow: hidden;
@@ -192,7 +224,15 @@
     color: #2c7da0;
     background: white;
 }
-
+@media (max-width: 768px) {
+    .equipment-item {
+        width: 220px;
+    }
+    .equipment-slider {
+        gap: 15px;
+        padding: 15px 0 25px;
+    }
+}
 /* 合作案例数据区 */
 .case-section {
     background: #f9fbfe;

@@ -365,51 +365,145 @@ body {
     }
 }
 
-/* ---------- 页脚及其他（无改动） ---------- */
-.site-footer {
+/* 紧凑型 footer */
+.footer {
     background: #0a2a38;
     color: #cbdbe2;
-    padding: 3rem 0 1.5rem;
-    margin-top: auto;
+    padding: 40px 0 30px;   /* 减少上下内边距 */
 }
-.footer-container {
-    max-width: 1280px;
+
+.footer .container {
+    max-width: 1000px;       /* 更窄的容器 */
     margin: 0 auto;
-    padding: 0 1.5rem;
+    padding: 0 20px;
+}
+
+.footer-grid {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
-    gap: 2rem;
+    justify-content: center;
+    gap: 30px;               /* 减小列间距 */
 }
+
 .footer-col {
-    flex: 1;
-    min-width: 160px;
+    flex: 0 0 auto;
+    width: 260px;            /* 列宽缩小 */
+    text-align: left;
 }
+
 .footer-col h4 {
-    color: white;
-    margin-bottom: 1rem;
     font-size: 1rem;
+    margin-bottom: 12px;
+    color: #fff;
 }
-.footer-col p, .footer-col a {
+
+.footer-col ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.footer-col li {
+    margin-bottom: 6px;
+}
+
+.footer-col a {
     color: #b3c7d6;
+    text-decoration: none;
     font-size: 0.85rem;
+    transition: color 0.2s;
 }
+
+.footer-col a:hover {
+    color: #fff;
+}
+
+.keyword-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 12px;
+}
+
+.keyword-links a {
+    background: rgba(255,255,255,0.1);
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 0.7rem;
+}
+
+.address {
+    margin-bottom: 12px;
+    line-height: 1.4;
+    font-size: 0.8rem;
+}
+
+address strong {
+    display: block;
+    margin-bottom: 2px;
+    color: #fff;
+}
+
+address br {
+    margin: 0;
+}
+
+.cert-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 10px 0 12px;
+}
+
+.cert-badges span {
+    background: rgba(255,255,255,0.1);
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 0.7rem;
+    color: #fff;
+}
+
+.social-links {
+    display: flex;
+    gap: 12px;
+    margin: 12px 0;
+}
+
+.social-links a {
+    color: #fff;
+    font-size: 1.2rem;
+}
+
 .copyright {
-    text-align: center;
-    padding-top: 2rem;
-    margin-top: 2rem;
-    border-top: 1px solid #1f495e;
-    font-size: 0.75rem;
+    font-size: 0.7rem;
+    text-align: left;
+    margin-top: 12px;
+    line-height: 1.4;
 }
+
+/* 移动端适配 */
 @media (max-width: 768px) {
-    .footer-container {
+    .footer-grid {
         flex-direction: column;
+        align-items: center;
+        gap: 25px;
+    }
+    .footer-col {
+        width: 100%;
+        text-align: center;
+    }
+    .footer-col .keyword-links,
+    .footer-col .cert-badges,
+    .footer-col .social-links {
+        justify-content: center;
+    }
+    .copyright {
         text-align: center;
     }
 }
 
 * {
-            margin: 0;
+     margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
@@ -490,7 +584,7 @@ body {
             left: 10%;
             transform: translateY(-50%);
             max-width: 600px;
-            color: white;
+            color: rgb(7, 7, 7);
             text-shadow: 0 2px 10px rgba(0,0,0,0.3);
             z-index: 2;
         }
@@ -534,8 +628,8 @@ body {
 
         .btn-secondary {
             background: transparent;
-            border: 2px solid white;
-            color: white;
+            border: 2px solid rgb(5, 5, 5);
+            color: rgb(6, 6, 6);
         }
 
         .btn-secondary:hover {
@@ -543,59 +637,51 @@ body {
             transform: translateY(-2px);
         }
 
-        /* 轮播控制按钮 */
-        .swiper-button {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 44px;
-            height: 44px;
-            background: rgba(0,0,0,0.5);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            z-index: 10;
-            color: white;
-            font-size: 20px;
-            transition: 0.3s;
-        }
-        .swiper-button:hover {
-            background: rgba(0,0,0,0.8);
-        }
-        .swiper-button-prev { left: 20px; }
-        .swiper-button-next { right: 20px; }
-
-        .swiper-pagination {
-            position: absolute;
-            bottom: 20px;
-            left: 0;
-            right: 0;
-            display: flex;
-            justify-content: center;
-            gap: 12px;
-            z-index: 10;
-        }
-        .dot {
-            width: 12px;
-            height: 12px;
-            background: rgba(255,255,255,0.5);
-            border-radius: 50%;
-            cursor: pointer;
-            transition: 0.3s;
-        }
-        .dot.active {
-            background: white;
-            transform: scale(1.2);
-        }
-
+       
         @media (max-width: 768px) {
-            .hero { height: 70vh; min-height: 450px; }
-            .hero-content { left: 5%; right: 5%; text-align: center; }
-            .hero-content h1 { font-size: 2rem; }
-            .hero-content p { font-size: 1rem; }
-            .hero-buttons { justify-content: center; }
+            .hero {
+                height: 70vh;
+                min-height: 450px;
+            }
+
+            .hero-content {
+                left: 5%;
+                right: 5%;
+                text-align: center;
+                /* 不调整整个容器的位置，只移动内部文字 */
+            }
+
+            /* 标题和描述向上移动，露出电缆 */
+            .hero-content h1,
+            .hero-content p {
+                transform: translateY(-20px);   /* 向上偏移20px，可根据实际效果微调 */
+            }
+
+            .hero-content h1 {
+                font-size: 2rem;
+                margin-top: 0;
+            }
+
+            .hero-content p {
+                font-size: 1rem;
+                background: rgba(255, 255, 255, 0.5);
+                display: inline-block;
+                padding: 12px 20px;
+                border-radius: 40px;
+                backdrop-filter: blur(4px);
+                color: #000000;
+                margin-bottom: 0.5rem;          /* 减小与按钮的间距，避免上移后重叠 */
+                max-width: 90%;
+                margin-left: auto;
+                margin-right: auto;
+                line-height: 1.5;
+            }
+
+            /* 按钮保持原有样式，增加上边距防止与上移文字重叠 */
+            .hero-buttons {
+                justify-content: center;
+                margin-top: 20px;               /* 确保按钮不会与上移后的文字挤在一起 */
+            }
         }
 
         /* ========== 2. 关于越洋 ========== */
@@ -784,8 +870,6 @@ body {
             flex-shrink: 0;
             width: 140px;
             text-align: center;
-            filter: grayscale(100%);
-            opacity: 0.7;
             transition: 0.3s;
         }
         .partner-item:hover {
@@ -884,7 +968,7 @@ body {
             .cert-badges { justify-content: center; }
             .social-links { justify-content: center; }
         }
-
+       
 .floating-contact-bar {
     position: fixed;
     right: 20px;

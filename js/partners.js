@@ -2,14 +2,14 @@
 document.addEventListener('DOMContentLoaded', function() {
     // ========== 1. 客户数据 ==========
     const clients = [
-        { name: 'Logitech', logo: 'images/logo-logitech.png', description: '全球外设领导品牌，合作开发电竞鼠标/键盘线缆，提供高柔韧性USB弹簧线解决方案。' },
-        { name: 'Huawei', logo: 'images/logo-huawei.png', description: '战略合作伙伴，自2013年起配合开发手机数据线，从PVC到无卤TPE大电流Type-C线，保质保量稳定供货。' },
-        { name: 'vivo', logo: 'images/logo-vivo.png', description: '长期二级供应商，提供USB数据线及充电线，满足严苛的可靠性测试要求。' },
-        { name: 'Razer', logo: 'images/logo-razer.png', description: '电竞外设专业合作伙伴，提供螺旋线、伞绳线、液态硅胶线等高端定制线材。' },
-        { name: 'Anker', logo: 'images/logo-anker.png', description: '消费电子合作伙伴，提供环保生物基TPU数据线，支持快充和高效数据传输。' },
-        { name: 'Tesla', logo: 'images/logo-tesla.png', description: '新能源汽车线束供应商，提供高压线缆、充电线及车内信号传输线。' },
-        { name: 'Siemens', logo: 'images/logo-siemens.png', description: '工业自动化合作伙伴，提供高柔拖链电缆、机器人电缆，满足严苛工业环境需求。' },
-        { name: 'ABB', logo: 'images/logo-abb.png', description: '工业设备线缆供应商，提供耐油、耐高温、抗干扰的工业控制线缆。' }
+        { name: 'Logitech', logo: '../images/logo_logitech.png', description: '全球外设领导品牌，合作开发电竞鼠标/键盘线缆，提供高柔韧性USB弹簧线解决方案。' },
+        { name: 'Huawei', logo: '../images/logo_huawei.png', description: '战略合作伙伴，自2013年起配合开发手机数据线，从PVC到无卤TPE大电流Type-C线，保质保量稳定供货。' },
+        { name: 'vivo', logo: '../images/logo_vivo.png', description: '长期二级供应商，提供USB数据线及充电线，满足严苛的可靠性测试要求。' },
+        { name: 'Razer', logo: '../images/logo_razer.png', description: '电竞外设专业合作伙伴，提供螺旋线、伞绳线、液态硅胶线等高端定制线材。' },
+        { name: 'Anker', logo: '../images/logo_anker.png', description: '消费电子合作伙伴，提供环保生物基TPU数据线，支持快充和高效数据传输。' },
+        { name: 'Tesla', logo: '../images/logo_tesla.png', description: '新能源汽车线束供应商，提供高压线缆、充电线及车内信号传输线。' },
+        { name: 'Siemens', logo: '../images/logo_siemens.png', description: '工业自动化合作伙伴，提供高柔拖链电缆、机器人电缆，满足严苛工业环境需求。' },
+        { name: 'ABB', logo: '../images/logo_Abb.png', description: '工业设备线缆供应商，提供耐油、耐高温、抗干扰的工业控制线缆。' }
     ];
 
     const clientsGrid = document.getElementById('clientsGrid');
@@ -25,12 +25,12 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // ========== 2. 资质认证数据 ==========
     const certificates = [
-        { name: 'UL 认证', img: 'images/cert-ul.jpg', fullImg: 'images/cert-ul-full.jpg', desc: 'UL 电子线 (E230810) / 电源线 (E230811)' },
-        { name: 'ISO 9001', img: 'images/cert-iso9001.jpg', fullImg: 'images/cert-iso9001-full.jpg', desc: '质量管理体系认证' },
-        { name: 'IATF 16949', img: 'images/cert-iatf.jpg', fullImg: 'images/cert-iatf-full.jpg', desc: '汽车行业质量管理体系' },
-        { name: 'ISO 13485', img: 'images/cert-iso13485.jpg', fullImg: 'images/cert-iso13485-full.jpg', desc: '医疗器械质量管理体系' },
-        { name: 'ISO 14001', img: 'images/cert-iso14001.jpg', fullImg: 'images/cert-iso14001-full.jpg', desc: '环境管理体系认证' },
-        { name: 'ISO 14064', img: 'images/cert-iso14064.jpg', fullImg: 'images/cert-iso14064-full.jpg', desc: '温室气体排放管理体系' }
+        { name: 'UL 认证', img: '../images/UL.webp', fullImg: 'images/cert-ul-full.jpg', desc: 'UL 电子线 (E230810) / 电源线 (E230811)' },
+        { name: 'ISO 9001', img: '../images/ios9001.webp', fullImg: 'images/cert-iso9001-full.jpg', desc: '质量管理体系认证' },
+        { name: 'IATF 16949', img: '../images/IATF16949.webp', fullImg: 'images/cert-iatf-full.jpg', desc: '汽车行业质量管理体系' },
+        { name: 'ISO 13485', img: '../images/ios13458.webp', fullImg: 'images/cert-iso13485-full.jpg', desc: '医疗器械质量管理体系' },
+        { name: 'ISO 14001', img: '../images/ios14001.webp', fullImg: 'images/cert-iso14001-full.jpg', desc: '环境管理体系认证' },
+        { name: 'ISO 14064', img: '../images/ios14064.png', fullImg: 'images/cert-iso14064-full.jpg', desc: '温室气体排放管理体系' }
     ];
 
     const certGrid = document.getElementById('certGrid');
