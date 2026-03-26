@@ -1,30 +1,84 @@
-// ========== 产品页面专属交互（追加到 script.js 末尾） ==========
+// ========== 产品页面专属交互 ==========
 (function() {
-    // 确保 DOM 加载完成
     if (document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', initProductPage);
     } else {
         initProductPage();
     }
 
-    function initProductPage() {
-        const catBtns = document.querySelectorAll('.cat-btn');
-        if (catBtns.length === 0) return;
+    async function handleInquirySubmit(e) {
+        e.preventDefault();
+        const form = e.currentTarget;
 
+        // 获取表单字段
+        const nameInput = form.querySelector('input[name="Name"]');
+        const emailInput = form.querySelector('input[name="Email"]');
+        const phoneInput = form.querySelector('input[name="Phone"]');
+        const categorySelect = form.querySelector('select[name="Product Category"]');
+        const messageTextarea = form.querySelector('textarea[name="Requirement Description"]');
 
-        // 获取固定头部的高度（包括 header 和分类栏自身）
-        function getHeaderOffset() {
-            const header = document.querySelector('.site-header');
-            const catWrapper = document.querySelector('.product-categories-wrapper');
-            let offset = 0;
-            if (header) offset += header.offsetHeight;
-            if (catWrapper && window.scrollY > 0) offset += catWrapper.offsetHeight;
-            // 增加 20px 缓冲，避免刚好贴边
-            return offset + 20;
+        // 验证必填
+        if (!nameInput.value.trim()) {
+            alert('กรุณากรอกชื่อของคุณ');
+            nameInput.focus();
+            return;
+        }
+        if (!emailInput.value.trim() || !/^\S+@\S+\.\S+$/.test(emailInput.value)) {
+            alert('กรุณากรอกอีเมลให้ถูกต้อง');
+            emailInput.focus();
+            return;
+        }
+        if (!categorySelect.value) {
+            alert('กรุณาเลือกหมวดหมู่สินค้า');
+            categorySelect.focus();
+            return;
         }
 
+        const fields = {
+            Name: nameInput.value.trim(),
+            Email: emailInput.value.trim(),
+            Phone: phoneInput.value.trim(),
+            "Product Category": categorySelect.value,
+            "Requirement Description": messageTextarea.value.trim()
+        };
 
-        // ----- 2. 产品详情模态框 -----
+        const submitBtn = form.querySelector('button[type="submit"]');
+        const originalText = submitBtn.innerText;
+        submitBtn.disabled = true;
+        submitBtn.innerText = 'กำลังส่ง...';
+
+        try {
+            const response = await fetch('https://yue-yang.vercel.app/api/inquiry', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ fields })
+            });
+            const result = await response.json();
+            if (response.ok && result.success) {
+                alert('✅ ส่งคำขอสำเร็จ! เราจะติดต่อกลับโดยเร็วที่สุด');
+                form.reset();
+            } else {
+                alert(`เกิดข้อผิดพลาด: ${result.error || 'กรุณาลองใหม่'}`);
+            }
+        } catch (err) {
+            console.error('网络错误:', err);
+            alert('ไม่สามารถเชื่อมต่อเซิร์ฟเวอร์ได้');
+        } finally {
+            submitBtn.disabled = false;
+            submitBtn.innerText = originalText;
+        }
+    }
+
+    function initProductPage() {
+        // ---------- 1. 询价表单（Airtable 集成） ----------
+        const inquiryForm = document.getElementById('productInquiryForm');
+        if (inquiryForm) {
+            // 移除可能已绑定的旧事件，避免重复
+            inquiryForm.removeEventListener('submit', handleInquirySubmit);
+            inquiryForm.addEventListener('submit', handleInquirySubmit);
+        }
+
+        // ---------- 2. 产品详情模态框 ----------
         const productDetails = {
             med1: { name:"High-Speed Medical Cable", img:"https://picsum.photos/id/177/500/350", specs:[["导体","镀锡铜绞线"],["绝缘","医疗级PP/PE"],["温度","-40°C~105°C"],["认证","ISO13485, UL"]], scene:"适用于高频手术器械、监护仪连接，信号完整性强" },
             med2: { name:"Patient Monitor Cable", img:"https://picsum.photos/id/43/500/350", specs:[["导体","裸铜"],["屏蔽","铝箔+编织"],["温度","-20°C~80°C"],["认证","UL, REACH"]], scene:"多参数监护仪，抗干扰设计，确保生命体征数据精准" },
@@ -56,25 +110,23 @@
                 if (!data) return;
                 modalTitle.innerText = data.name;
                 modalImg.src = data.img;
-                // 填充规格表格
                 modalSpecTable.innerHTML = '';
                 data.specs.forEach(spec => {
-                    const row = `<tr><td>${spec[0]}</td><td>${spec[1]}</td></tr>`;
+                    const row = ` <tr><td>${spec[0]}</td><td>${spec[1]}</td></tr> `;
                     modalSpecTable.innerHTML += row;
                 });
                 modalScene.innerHTML = `<strong>การประยุกต์:</strong> ${data.scene}`;
                 modal.style.display = 'flex';
-                // 绑定模态框内按钮事件（防止重复绑定）
-                const newInquiryHandler = () => {
+                // 点击模态框“询价”按钮时，关闭模态框并滚动到底部表单
+                modalInquiryBtn.onclick = () => {
                     modal.style.display = 'none';
-                    const inquiryForm = document.getElementById('inquiry-form');
-                    if (inquiryForm) inquiryForm.scrollIntoView({ behavior: 'smooth' });
+                    const inquiryFormSection = document.getElementById('inquiry-form');
+                    if (inquiryFormSection) inquiryFormSection.scrollIntoView({ behavior: 'smooth' });
                 };
-                modalInquiryBtn.onclick = newInquiryHandler;
                 sampleBtn.onclick = () => alert('📦 ตัวอย่าง: กรุณาติดต่อฝ่ายขายเพื่อขอตัวอย่างฟรี (demo)');
             }
 
-            // 绑定所有询价按钮和卡片点击
+            // 绑定所有产品卡片和询价按钮
             document.querySelectorAll('.btn-inquire').forEach(btn => {
                 btn.addEventListener('click', (e) => {
                     e.stopPropagation();
@@ -95,28 +147,14 @@
             modal.addEventListener('click', (e) => { if (e.target === modal) modal.style.display = 'none'; });
         }
 
-        // ----- 3. 询价表单提交（演示） -----
-        const inquiryForm = document.getElementById('productInquiryForm');
-        if (inquiryForm) {
-            inquiryForm.addEventListener('submit', (e) => {
-                e.preventDefault();
-                alert('ขอบคุณที่ติดต่อเรา ทีมงานจะตอบกลับภายใน 24 ชั่วโมง');
-                inquiryForm.reset();
-            });
-        }
-
-        // ----- 4. 语言切换提示（与首页统一）-----
+        // ---------- 3. 语言切换提示 ----------
         const langToggle = document.querySelector('.lang-toggle');
-        if (langToggle) {
-            // 避免重复绑定
-            if (!langToggle.hasListener) {
-                langToggle.addEventListener('click', () => alert('语言切换功能演示，正式站点可链接对应语言版本'));
-                langToggle.hasListener = true;
-            }
+        if (langToggle && !langToggle.hasListener) {
+            langToggle.addEventListener('click', () => alert('语言切换功能演示，正式站点可链接对应语言版本'));
+            langToggle.hasListener = true;
         }
 
-        // ----- 5. 浮窗按钮（确保回到顶部等与原有兼容，不再重复绑定）-----
-        // 注意：原有 script.js 已经处理了 lineBtn, inquiryBtn, topBtn，这里无需重复，但若原有没有，可添加以下备用
+        // ---------- 4. 回到顶部按钮（避免重复绑定） ----------
         const topBtn = document.getElementById('topBtn');
         if (topBtn && !topBtn._listenerAdded) {
             topBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));

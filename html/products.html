@@ -552,22 +552,22 @@
             <div class="inquiry-wrapper">
                 <h2 class="section-title">รับโซลูชันที่กำหนดเองทันที</h2>
                 <p class="inquiry-desc">กรอกข้อมูลด้านล่าง เราจะติดต่อกลับภายใน 24 ชั่วโมง</p>
-                <form id="productInquiryForm" class="inquiry-form-grid">
-                    <input type="text" placeholder="ชื่อของคุณ *" required>
-                    <input type="email" placeholder="อีเมล *" required>
-                    <input type="tel" placeholder="เบอร์โทรศัพท์">
-                    <select id="productCategorySelect">
-                        <option value="">เลือกหมวดหมู่สินค้า</option>
-                        <option value="medical">สายเคเบิลทางการแพทย์</option>
-                        <option value="automotive">ชุดสายไฟรถยนต์</option>
-                        <option value="security">สายเคเบิลระบบรักษาความปลอดภัย</option>
-                        <option value="industrial">สายเคเบิลควบคุมอุตสาหกรรม</option>
-                        <option value="energy">สายเคเบิลพลังงาน/โซลาร์เซลล์</option>
-                        <option value="gaming">สายเคเบิลเกมมิ่ง</option>
-                    </select>
-                    <textarea rows="3" placeholder="รายละเอียดความต้องการ (ระบุรุ่น, ปริมาณ, การใช้งาน)"></textarea>
-                    <button type="submit" class="submit-btn">ส่งคำขอใบเสนอราคา <i class="fas fa-paper-plane"></i></button>
-                </form>
+               <form id="productInquiryForm" class="inquiry-form-grid">
+                <input type="text" name="Name" placeholder="ชื่อของคุณ *" required>
+                <input type="email" name="Email" placeholder="อีเมล *" required>
+                <input type="tel" name="Phone" placeholder="เบอร์โทรศัพท์">
+                <select name="Product Category" id="productCategorySelect">
+                    <option value="">เลือกหมวดหมู่สินค้า</option>
+                    <option value="Medical cable">สายเคเบิลทางการแพทย์</option>
+                    <option value="Automotive wiring harness">ชุดสายไฟรถยนต์</option>
+                    <option value="Security system cable">สายเคเบิลระบบรักษาความปลอดภัย</option>
+                    <option value="Industrial control cable">สายเคเบิลควบคุมอุตสาหกรรม</option>
+                    <option value="Energy / Photovoltaic Cable">สายเคเบิลพลังงาน/โซลาร์เซลล์</option>
+                    <option value="Esports cable">สายเคเบิลเกมมิ่ง</option>
+    </select>
+    <textarea name="Requirement Description" rows="3" placeholder="รายละเอียดความต้องการ (ระบุรุ่น, ปริมาณ, การใช้งาน)"></textarea>
+    <button type="submit" class="submit-btn">ส่งคำขอใบเสนอราคา <i class="fas fa-paper-plane"></i></button>
+</form>
             </div>
         </div>
     </section>
