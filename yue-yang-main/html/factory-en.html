@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Facilities | YueYang Wire & Cable Co., Ltd.</title>
+    <meta name="description" content="Yueyang's global manufacturing network: Dongguan HQ, Sichuan base, Thailand factory, and USA service center. Total area over 20,000 sqm, production capacity over 10,000 million meters per year.">
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Global Styles -->
+    <link rel="stylesheet" href="../css/index.css">
+    <link rel="stylesheet" href="../css/factory.css">
+    <!-- Schema.org BreadcrumbList -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://www.yueyang-cable.com/index-en.html"
+      },{
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Facilities",
+        "item": "https://www.yueyang-cable.com/factory-en.html"
+      }]
+    }
+    </script>
+</head>
+<body>
+
+<!-- ========== Header ========== -->
+<header class="site-header">
+    <div class="header-container">
+        <div class="logo-area">
+            <a href="index-en.html" class="logo-link">
+                <img src="../images/logo.webp" alt="Yueyang Cable" class="logo-img">
+                <div class="company-info">
+                    <h1 class="name-th">YueYang Wire & Cable Co., Ltd.</h1>
+                    <p class="name-en">YUEYANG WIRE & CABLE CO., LTD.</p>
+                </div>
+            </a>
+        </div>
+        <nav class="nav-wrapper" id="navWrapper">
+            <ul class="nav-menu">
+                <li><a href="index-en.html">Home</a></li>
+                <li><a href="about-en.html">About Us</a></li>
+                <li><a href="products-en.html">Products</a></li>
+                <li><a href="factory-en.html" class="active">Facilities</a></li>
+                <li><a href="partners-en.html">Partners</a></li>
+                <li><a href="blog-en.html">Blog</a></li>
+                <li><a href="contact-en.html">Contact Us</a></li>
+            </ul>
+        </nav>
+        <div class="header-right">
+            <div class="lang-toggle">
+                <a href="factory.html" class="lang">TH</a>
+                <span class="split">|</span>
+                <a href="factory-en.html" class="lang active">EN</a>
+            </div>
+            <div class="hamburger" id="hamburger">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- ========== Breadcrumb ========== -->
+<nav class="breadcrumb">
+    <div class="container">
+        <a href="index-en.html">Home</a>
+        <span>/</span>
+        <span class="current">Facilities</span>
+    </div>
+</nav>
+
+<!-- ========== Main Content ========== -->
+
+<!-- Hero Section: Factory Overview -->
+<section class="factory-hero">
+    <div class="factory-hero-bg" style="background-image: url('../images/factory_hero.webp');">
+        <div class="factory-hero-overlay"></div>
+        <div class="container factory-hero-content">
+            <h2>Global Manufacturing Network</h2>
+            <p>5 production bases in China, Thailand, and the USA. Total area <strong class="highlight-text">20,000+ sqm</strong><br>Cable production capacity <strong>10 million meters/month</strong>, ready to serve customers worldwide.</p>
+            <div class="hero-badge">
+                <span><i class="fas fa-industry"></i> 5 Production Bases</span>
+                <span><i class="fas fa-chart-line"></i> 60M+ USD Annual Output</span>
+                <span><i class="fas fa-globe"></i> Global Service Coverage</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Interactive Global Map -->
+<div class="global-map-wrapper">
+    <div class="map-container" id="mapContainer">
+        <!-- World map background image -->
+        <img src="../images/world_map.webp" alt="World Map" class="world-map-bg">
+        
+        <!-- Factory markers (English) -->
+        <div class="map-marker" data-name="Dongguan Headquarters" data-img="../images/dongguan_factory.webp" data-desc="R&D Center, PVC/Halogen‑free cable production, area 25,000 sqm" style="top: 53%; left: 73.5%;">
+            <div class="pulse-dot"></div>
+            <div class="marker-label">Dongguan HQ</div>
+        </div>
+        <div class="map-marker" data-name="Sichuan Base" data-img="../images/sichuan_factory.webp" data-desc="Inland production center, area 18,000 sqm, serving western China market" style="top: 56%; left: 78.6%;">
+            <div class="pulse-dot"></div>
+            <div class="marker-label">Sichuan Base</div>
+        </div>
+        <div class="map-marker" data-name="Thailand Factory" data-img="../images/thailand_factory.webp" data-desc="Opened in 2023, area 20,000 sqm, focusing on automotive and medical cables, serving ASEAN market" style="top: 61%; left: 75%;">
+            <div class="pulse-dot"></div>
+            <div class="marker-label">Thailand Factory</div>
+        </div>
+        <div class="map-marker" data-name="USA Service Center" data-img="../images/usa_office.webp" data-desc="New Jersey, sales and technical support, rapid response for North American customers" style="top: 48.5%; left: 25%;">
+            <div class="pulse-dot"></div>
+            <div class="marker-label">USA Service Center</div>
+        </div>
+    </div>
+    <!-- Custom tooltip -->
+    <div id="mapTooltip" class="map-tooltip" style="display: none;">
+        <img id="tooltipImg" src="" alt="Factory">
+        <div class="tooltip-content">
+            <h4 id="tooltipTitle"></h4>
+            <p id="tooltipDesc"></p>
+        </div>
+    </div>
+</div>
+
+<!-- Four Production Bases (Detailed Cards) -->
+<section class="section factories-grid-section">
+    <div class="container">
+        <h2 class="section-title">Our Production Bases</h2>
+        <div class="factories-grid">
+            <div class="factory-card">
+                <div class="factory-img" style="background-image: url('../images/dongguan_factory.webp');"></div>
+                <div class="factory-info">
+                    <h3>Dongguan Headquarters</h3>
+                    <div class="location"><i class="fas fa-map-pin"></i> Humen, Dongguan</div>
+                    <p>Founded in 2002, integrating R&D, production, and sales. Modern twisting, extrusion, and braiding lines. Annual output exceeds USD 30 million.</p>
+                    <span class="factory-badge">UL Certified Factory</span>
+                    <span class="factory-badge">ISO9001</span>
+                </div>
+            </div>
+            <div class="factory-card">
+                <div class="factory-img" style="background-image: url('../images/sichuan_factory.webp');"></div>
+                <div class="factory-info">
+                    <h3>Sichuan Base</h3>
+                    <div class="location"><i class="fas fa-map-pin"></i> Dazhu County, Sichuan</div>
+                    <p>Established in 2012 to serve the inland market, expanding capacity. Specializes in industrial cables and automotive wiring harnesses. Area 10,000 sqm.</p>
+                    <span class="factory-badge">IATF16949</span>
+                    <span class="factory-badge">Green Factory</span>
+                </div>
+            </div>
+            <div class="factory-card">
+                <div class="factory-img" style="background-image: url('../images/thailand_factory.webp');"></div>
+                <div class="factory-info">
+                    <h3>Thailand Factory, Chonburi</h3>
+                    <div class="location"><i class="fas fa-map-pin"></i> Chonburi, Thailand</div>
+                    <p>Started operations in 2023, area 15,000 sqm. Mitigates tariff risks, serves ASEAN and global customers. Produces medical, security, and new energy cables.</p>
+                    <span class="factory-badge">ISO13485</span>
+                    <span class="factory-badge">Green Factory</span>
+                </div>
+            </div>
+            <div class="factory-card">
+                <div class="factory-img" style="background-image: url('../images/usa_office.webp');"></div>
+                <div class="factory-info">
+                    <h3>USA Service Center</h3>
+                    <div class="location"><i class="fas fa-map-pin"></i> Newark, New Jersey</div>
+                    <p>Global brand service center, rapid response for North American market, local technical support and warehousing.</p>
+                    <span class="factory-badge">24h Response</span>
+                    <span class="factory-badge">Local Warehouse</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Production Gallery (Horizontal Scroll) -->
+<section class="section gallery-section">
+    <div class="container">
+        <h2 class="section-title">Smart Production Line Overview</h2>
+        <div class="gallery-slider">
+            <div class="gallery-item">
+                <img src="../images/production_twisting.webp" alt="Automatic Twisting Line">
+                <div class="gallery-caption">Automatic Twisting Line</div>
+            </div>
+            <div class="gallery-item">
+                <img src="../images/extrusion_pefoam.webp" alt="Foam PE Extrusion Line">
+                <div class="gallery-caption">Foam PE Extrusion Line</div>
+            </div>
+            <div class="gallery-item">
+                <img src="../images/coaxial_winding.webp" alt="Horizontal Coaxial Winding Machine">
+                <div class="gallery-caption">Horizontal Coaxial Winding Machine</div>
+            </div>
+            <div class="gallery-item">
+                <img src="../images/extrusion_jacket.webp" alt="Jacket Extrusion Line">
+                <div class="gallery-caption">Jacket Extrusion Line</div>
+            </div>
+            <div class="gallery-item">
+                <img src="../images/usb_triple_twisting.webp" alt="USB3.0-4.0 Triple Twisting Machine">
+                <div class="gallery-caption">USB3.0-4.0 Triple Twisting Machine</div>
+            </div>
+            <div class="gallery-item">
+                <img src="../images/extrusion_ptfe.webp" alt="PTFE Extrusion Line">
+                <div class="gallery-caption">PTFE Extrusion Line</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Capacity & Certification Data (Number Animation) -->
+<section class="section capacity-section">
+    <div class="container">
+        <div class="capacity-stats">
+            <div class="stat-item">
+                <span class="stat-number" data-target="10000000">0</span>
+                <span class="stat-unit">meters/month</span>
+                <p>Cable Production Capacity</p>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number" data-target="9000000">0</span>
+                <span class="stat-unit">pcs/month</span>
+                <p>Harness Assembly Capacity</p>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number" data-target="60000000">0</span>
+                <span class="stat-unit">USD</span>
+                <p>Annual Output Value</p>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number" data-target="20000">0</span>
+                <span class="stat-unit">sqm</span>
+                <p>Total Production Area</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ========== Footer ========== -->
+<footer class="footer">
+    <div class="container footer-container">
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="about-en.html">About Yueyang</a></li>
+                    <li><a href="products-en.html">Product Categories</a></li>
+                    <li><a href="#">R&D Center</a></li>
+                    <li><a href="#">Careers</a></li>
+                </ul>
+                <div class="keyword-links">
+                    <a href="#">Medical Cables</a>
+                    <a href="#">Automotive Harnesses</a>
+                    <a href="#">New Energy Cables</a>
+                    <a href="#">Industrial Cables</a>
+                </div>
+            </div>
+
+            <div class="footer-col">
+                <h4>Global Contact & Services</h4>
+                <address>
+                    <strong>China Headquarters</strong><br>
+                    No.7 Xinyuan North 5th Road, Ludong Management District, Humen Town, Dongguan, Guangdong 523935, China<br>
+                    Tel: +86-769-85167777 | Fax: +86-769-85167555 | Email: sa01@yueyang-china.com
+                </address>
+                <address>
+                    <strong>Thailand Factory</strong><br>
+                    123 Moo 4, Tambon Nong Kham, Amphoe Si Racha, Chonburi 20110, Thailand
+                </address>
+                <address>
+                    <strong>Sichuan Base</strong><br>
+                    Qianfeng Economic Development Zone, Guang'an, Sichuan, China
+                </address>
+                <address>
+                    <strong>USA Office</strong><br>
+                    Newark, New Jersey, US | Tel: +1 (513)-488-2006
+                </address>
+            </div>
+
+            <div class="footer-col">
+                <h4>Certifications & Copyright</h4>
+                <div class="cert-badges">
+                    <span>UL</span> <span>ISO9001</span> <span>IATF16949</span> <span>ISO13485</span> <span>ISO14001</span>
+                </div>
+                <div class="social-links">
+                    <a href="https://www.facebook.com/yourpage" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook"></i></a>
+                    <a href="https://www.tiktok.com/@yourhandle" target="_blank" rel="noopener noreferrer"><i class="fab fa-tiktok"></i></a>
+                    <a href="https://line.me/R/ti/p/@your_line_id" target="_blank" rel="noopener noreferrer"><i class="fab fa-line"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fab fa-weixin"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+                <div class="copyright">
+                    © 2026 Dongguan Yueyang Wire & Cable Co., Ltd.<br>粤ICP备XXXXXXXX号
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- Floating Contact Bar (English tooltips) -->
+<div class="floating-contact-bar">
+    <div class="contact-btn line-btn" id="lineBtn"><i class="fab fa-line"></i><span class="tooltip">Line Inquiry</span></div>
+    <div class="contact-btn inquiry-btn" id="inquiryBtn"><i class="fas fa-envelope"></i><span class="tooltip">Request Quote</span></div>
+    <div class="contact-btn top-btn" id="topBtn"><i class="fas fa-arrow-up"></i><span class="tooltip">Back to Top</span></div>
+</div>
+
+<!-- Inquiry Modal (English) -->
+<div class="modal-overlay" id="inquiryModal">
+    <div class="modal-container">
+        <div class="modal-header"><h3>Get Custom Solutions Now</h3><button class="modal-close" id="closeModal">&times;</button></div>
+        <form id="inquiryForm">
+            <input type="text" placeholder="Your Name *" required>
+            <input type="email" placeholder="Email *" required>
+            <textarea rows="3" placeholder="Please describe your cable needs..."></textarea>
+            <button type="submit" class="submit-btn">Submit Inquiry</button>
+        </form>
+        <div class="modal-note">We will reply within 24 hours</div>
+    </div>
+</div>
+
+<!-- QR Modal (Line, English) -->
+<div class="modal-overlay" id="qrModal">
+    <div class="modal-container qr-container">
+        <div class="modal-header"><h3>Add Line Friend</h3><button class="modal-close" id="closeQRModal">&times;</button></div>
+        <div class="qr-code"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200' viewBox='0 0 200 200'%3E%3Crect width='200' height='200' fill='%2306C755'/%3E%3Ctext x='50%25' y='50%25' font-size='14' fill='white' text-anchor='middle' dy='.3em'%3ELine QR Code%3C/text%3E%3C/svg%3E" alt="Line QR"><p>Scan QR code to add friend</p><a href="https://line.me/R/ti/p/@your_line_id" target="_blank" class="line-link">Open in Line</a></div>
+    </div>
+</div>
+
+<script src="../js/script.js"></script>
+<script src="../js/factory.js"></script>
+</body>
+</html>

@@ -1,0 +1,382 @@
+/* ========== factory.html 专属样式 ========== */
+/* 继承 about.css 的基础样式（面包屑、按钮等已存在，仅添加工厂特有样式） */
+
+/* 工厂英雄区 */
+.factory-hero-bg {
+    position: relative;
+    height: 500px;
+    background-size: cover;
+    background-position: center 30%;
+    display: flex;
+    align-items: center;
+}
+.factory-hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(151, 198, 231, 0.6) 0%, rgba(107, 198, 240, 0.6) 100%);
+}
+.factory-hero-content {
+    position: relative;
+    z-index: 2;
+    color: rgb(1, 1, 1);
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+}
+.factory-hero-content h2 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    font-weight: 800;
+}
+.factory-hero-content p {
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+    opacity: 0.9;
+}
+.highlight-text {
+    color: #ffd966;
+    font-weight: 700;
+}
+.hero-badge {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+    margin-top: 1rem;
+}
+.hero-badge span {
+    background: rgba(255,255,255,0.15);
+    backdrop-filter: blur(4px);
+    padding: 0.4rem 1.2rem;
+    border-radius: 40px;
+    font-size: 0.9rem;
+}
+@media (max-width: 768px) {
+    .factory-hero-bg { height: 400px; }
+    .factory-hero-content h2 { font-size: 1.8rem; }
+    .hero-badge { gap: 1rem; }
+}
+
+/* 全球地图容器 */
+.global-map-wrapper {
+    position: relative;
+    margin: 2rem auto;
+    max-width: 1200px;
+}
+
+.map-container {
+    position: relative;
+    width: 100%;
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 12px 28px rgba(0,0,0,0.1);
+    background: #eef4fc;
+    transition: box-shadow 0.3s;
+}
+
+.map-container:hover {
+    box-shadow: 0 20px 35px rgba(44,125,160,0.2);
+}
+
+.world-map-bg {
+    width: 100%;
+    height: auto;
+    display: block;
+    pointer-events: none; /* 让背景不干扰点击 */
+}
+
+/* 标记点 */
+.map-marker {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+    z-index: 10;
+}
+
+/* 脉冲圆点 */
+.pulse-dot {
+    width: 16px;
+    height: 16px;
+    background: #2c7da0;
+    border-radius: 50%;
+    box-shadow: 0 0 0 rgba(44,125,160,0.6);
+    animation: pulse 1.5s infinite;
+    transition: transform 0.2s;
+}
+
+.map-marker:hover .pulse-dot {
+    transform: scale(1.3);
+    animation: none;
+    background: #ffb347;
+}
+
+/* 脉冲动画 */
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(44,125,160,0.6);
+    }
+    70% {
+        box-shadow: 0 0 0 12px rgba(44,125,160,0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(44,125,160,0);
+    }
+}
+
+/* 标记文字标签 */
+.marker-label {
+    position: absolute;
+    top: 24px;
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+    background: rgba(0,0,0,0.7);
+    color: white;
+    font-size: 12px;
+    padding: 4px 10px;
+    border-radius: 20px;
+    backdrop-filter: blur(4px);
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.2s;
+}
+
+.map-marker:hover .marker-label {
+    opacity: 1;
+}
+
+/* 提示框 */
+.map-tooltip {
+    position: fixed;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 12px 28px rgba(0,0,0,0.2);
+    padding: 12px;
+    max-width: 280px;
+    z-index: 1000;
+    pointer-events: none;
+    transition: opacity 0.2s;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.map-tooltip img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+.tooltip-content h4 {
+    margin: 0 0 4px;
+    font-size: 1rem;
+    color: #1f5e7a;
+}
+
+.tooltip-content p {
+    margin: 0;
+    font-size: 0.85rem;
+    color: #5f7f9e;
+    line-height: 1.4;
+}
+
+/* 移动端适配 */
+@media (max-width: 768px) {
+    .map-tooltip {
+        max-width: 240px;
+        padding: 10px;
+    }
+    .map-tooltip img {
+        height: 120px;
+    }
+    .marker-label {
+        font-size: 10px;
+        padding: 2px 8px;
+        top: 20px;
+    }
+}
+/* 四大基地卡片网格 */
+.factories-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 20px;
+}
+.factory-card {
+    background: white;
+    border-radius: 28px;
+    overflow: hidden;
+    box-shadow: 0 12px 25px rgba(0,0,0,0.05);
+    transition: all 0.3s;
+}
+.factory-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 35px rgba(44,125,160,0.15);
+}
+.factory-img {
+    height: 200px;
+    background-size: cover;
+    background-position: center;
+    transition: transform 0.4s;
+}
+.factory-card:hover .factory-img {
+    transform: scale(1.02);
+}
+.factory-info {
+    padding: 22px;
+}
+.factory-info h3 {
+    font-size: 1.3rem;
+    margin-bottom: 8px;
+    color: #003753;
+}
+.location {
+    color: #5f7f9e;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 0.9rem;
+}
+.factory-info p {
+    color: #4a627a;
+    margin-bottom: 15px;
+    line-height: 1.5;
+}
+.factory-badge {
+    display: inline-block;
+    background: #eef4fc;
+    padding: 5px 14px;
+    border-radius: 40px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #2c7da0;
+    margin-right: 8px;
+    margin-top: 6px;
+}
+
+/* 生产车间画廊 - 强制修复样式 */
+.gallery-section {
+    background: #f9fbfe !important;
+    overflow: visible !important;
+}
+
+.gallery-slider {
+    display: flex !important;
+    overflow-x: auto !important;
+    gap: 20px !important;
+    padding: 20px 0 30px !important;
+    scroll-snap-type: x mandatory !important;
+    -webkit-overflow-scrolling: touch !important;
+    width: 100% !important;
+    scrollbar-width: thin !important;
+}
+
+.gallery-slider::-webkit-scrollbar {
+    height: 6px !important;
+}
+.gallery-slider::-webkit-scrollbar-track {
+    background: #eef2f8 !important;
+    border-radius: 10px !important;
+}
+.gallery-slider::-webkit-scrollbar-thumb {
+    background: #2c7da0 !important;
+    border-radius: 10px !important;
+}
+
+.gallery-item {
+    flex: 0 0 auto !important;
+    width: 280px !important;
+    scroll-snap-align: start !important;
+    border-radius: 24px !important;
+    overflow: hidden !important;
+    background: white !important;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08) !important;
+    transition: transform 0.3s !important;
+}
+
+.gallery-item:hover {
+    transform: translateY(-5px) !important;
+}
+
+.gallery-item img {
+    width: 100% !important;
+    height: 180px !important;
+    object-fit: cover !important;
+    display: block !important;
+}
+
+.gallery-caption {
+    padding: 12px !important;
+    text-align: center !important;
+    font-size: 0.85rem !important;
+    font-weight: 500 !important;
+    color: #2c7da0 !important;
+    background: white !important;
+}
+
+/* 移动端适配 */
+@media (max-width: 768px) {
+    .gallery-item {
+        width: 240px !important;
+    }
+    .gallery-item img {
+        height: 150px !important;
+    }
+    .gallery-slider {
+        gap: 15px !important;
+        padding: 15px 0 25px !important;
+    }
+}
+
+/* 产能数据区 */
+.capacity-section {
+    background: white;
+}
+.capacity-stats {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 40px;
+    text-align: center;
+    background: #eef4fc;
+    border-radius: 48px;
+    padding: 40px 20px;
+}
+.stat-item {
+    min-width: 160px;
+}
+.stat-number {
+    font-size: 2.8rem;
+    font-weight: 800;
+    color: #2c7da0;
+    display: block;
+    line-height: 1;
+}
+.stat-unit {
+    font-size: 1rem;
+    font-weight: 500;
+    color: #2c7da0;
+    display: inline-block;
+    margin-left: 5px;
+}
+.stat-item p {
+    margin-top: 8px;
+    font-size: 0.9rem;
+    color: #4a627a;
+}
+@media (max-width: 768px) {
+    .capacity-stats { gap: 25px; padding: 30px 15px; }
+    .stat-number { font-size: 2rem; }
+}
+
+/* 响应式适配 */
+@media (max-width: 768px) {
+    .factories-grid { grid-template-columns: 1fr; }
+    .gallery-item { flex: 0 0 240px; }
+    .map-tooltip { font-size: 11px; white-space: normal; width: 120px; text-align: center; }
+}

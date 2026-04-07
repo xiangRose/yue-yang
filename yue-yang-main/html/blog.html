@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>บทความและข่าวสาร | บริษัท เยว่หยาง ไวร์ แอนด์ เคเบิล จำกัด</title>
+    <meta name="description" content="บทความทางเทคนิคและข่าวสารล่าสุดเกี่ยวกับสายเคเบิลทางการแพทย์ สายไฟรถยนต์ สายเคเบิลระบบรักษาความปลอดภัย และอื่นๆ อัพเดทความรู้และเทรนด์อุตสาหกรรม">
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- 全局样式 -->
+    <link rel="stylesheet" href="../css/index.css">
+    <!-- 博客页面专属样式 -->
+    <link rel="stylesheet" href="../css/blog.css">
+    <!-- Schema.org BreadcrumbList -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "name": "หน้าแรก",
+        "item": "https://www.yueyang-cable.com/index.html"
+      },{
+        "@type": "ListItem",
+        "position": 2,
+        "name": "บทความและข่าวสาร",
+        "item": "https://www.yueyang-cable.com/blog.html"
+      }]
+    }
+    </script>
+</head>
+<body>
+
+<!-- ========== 头部 (与首页完全一致) ========== -->
+<header class="site-header">
+    <div class="header-container">
+        <div class="logo-area">
+            <a href="index.html" class="logo-link">
+                <img src="../images/logo.webp" alt="Yueyang Cable" class="logo-img">
+                <div class="company-info">
+                    <h1 class="name-th">บริษัท เยว่หยาง ไวร์ แอนด์ เคเบิล จำกัด</h1>
+                    <p class="name-en">YUEYANG WIRE & CABLE CO., LTD.</p>
+                </div>
+            </a>
+        </div>
+        <nav class="nav-wrapper" id="navWrapper">
+            <ul class="nav-menu">
+                <li><a href="index.html">หน้าแรก</a></li>
+                <li><a href="about.html">เกี่ยวกับเรา</a></li>
+                <li><a href="products.html">ผลิตภัณฑ์</a></li>
+                <li><a href="factory.html">ฐานการผลิต</a></li>
+                <li><a href="partners.html">พันธมิตร</a></li>
+                <li><a href="blog.html" class="active">บทความ</a></li>
+                <li><a href="contact.html">ติดต่อเรา</a></li>
+            </ul>
+        </nav>
+        <div class="header-right">
+            <div class="lang-toggle">
+                <a href="blog.html" class="lang">TH</a>
+                <span class="split">|</span>
+                <a href="blog-en.html" class="lang active">EN</a>
+            </div>
+            <div class="hamburger" id="hamburger">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- ========== 面包屑导航 ========== -->
+<nav class="breadcrumb">
+    <div class="container">
+        <a href="index.html">หน้าแรก</a>
+        <span>/</span>
+        <span class="current">บทความและข่าวสาร</span>
+    </div>
+</nav>
+
+<!-- ========== 页面主要内容 ========== -->
+
+<!-- 英雄区 -->
+<section class="blog-hero">
+    <div class="blog-hero-bg" style="background-image: url('../images/blog-hero.jpg');">
+        <div class="blog-hero-overlay"></div>
+        <div class="container blog-hero-content">
+            <h2>บทความและข่าวสาร</h2>
+            <p>ความรู้ทางเทคนิค เทรนด์อุตสาหกรรม และข่าวสารล่าสุดจาก YueYang Cable</p>
+            <div class="hero-search">
+                <form action="#" method="get" class="search-form">
+                    <input type="text" placeholder="ค้นหาบทความ..." name="s">
+                    <button type="submit"><i class="fas fa-search"></i></button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 博客主要内容区 -->
+<section class="section blog-main">
+    <div class="container">
+        <div class="blog-layout">
+            <!-- 左侧：文章列表 -->
+            <div class="blog-content">
+                <div class="post-grid" id="postGrid">
+                    <!-- 文章卡片将由 JS 动态生成 -->
+                </div>
+                
+                <!-- 分页导航 -->
+                <div class="pagination" id="pagination">
+                    <button class="page-btn prev" disabled><i class="fas fa-chevron-left"></i> ก่อนหน้า</button>
+                    <div class="page-numbers" id="pageNumbers"></div>
+                    <button class="page-btn next">ถัดไป <i class="fas fa-chevron-right"></i></button>
+                </div>
+            </div>
+
+            <!-- 右侧：侧边栏 -->
+            <aside class="blog-sidebar">
+                <!-- 分类导航 -->
+                <div class="sidebar-widget">
+                    <h3><i class="fas fa-folder-open"></i> หมวดหมู่</h3>
+                    <ul class="category-list" id="categoryList">
+                        <!-- 分类由 JS 动态生成 -->
+                    </ul>
+                </div>
+
+                <!-- 热门文章 -->
+                <div class="sidebar-widget">
+                    <h3><i class="fas fa-fire"></i> บทความยอดนิยม</h3>
+                    <ul class="popular-list" id="popularList">
+                        <!-- 热门文章由 JS 动态生成 -->
+                    </ul>
+                </div>
+
+                <!-- 标签云 -->
+                <div class="sidebar-widget">
+                    <h3><i class="fas fa-tags"></i> แท็คยอดนิยม</h3>
+                    <div class="tag-cloud" id="tagCloud">
+                        <!-- 标签由 JS 动态生成 -->
+                    </div>
+                </div>
+
+                <!-- 订阅简报 -->
+                <div class="sidebar-widget newsletter-widget">
+                    <h3><i class="fas fa-envelope"></i> รับข่าวสาร</h3>
+                    <p>รับบทความ和技术ข่าวสารส่งตรงถึงอีเมลของคุณ</p>
+                    <form id="newsletterForm" class="newsletter-form">
+                        <input type="email" placeholder="อีเมลของคุณ" required>
+                        <button type="submit">สมัครรับข่าวสาร</button>
+                    </form>
+                </div>
+            </aside>
+        </div>
+    </div>
+</section>
+
+<!-- ========== 底部栏 ========== -->
+<footer class="footer">
+    <div class="container footer-container">
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h4>ลิงก์ด่วน</h4>
+                <ul>
+                    <li><a href="about.html">เกี่ยวกับเยว่หยาง</a></li>
+                    <li><a href="products.html">หมวดหมู่สินค้า</a></li>
+                    <li><a href="#">ศูนย์วิจัยและพัฒนา</a></li>
+                    <li><a href="#">ร่วมงานกับเรา</a></li>
+                </ul>
+                <div class="keyword-links">
+                    <a href="#">สายเคเบิลทางการแพทย์</a>
+                    <a href="#">ชุดสายไฟรถยนต์</a>
+                    <a href="#">สายเคเบิลพลังงานใหม่</a>
+                    <a href="#">สายเคเบิลอุตสาหกรรม</a>
+                </div>
+            </div>
+
+            <div class="footer-col">
+                <h4>การติดต่อและบริการทั่วโลก</h4>
+                <address>
+                    <strong>สำนักงานใหญ่ จีน</strong><br>
+                    เลขที่ 7 ถนนซินหยวนเหนือ 5 เขตปกครองลู่ตง เมืองหูเหมิน เมืองตงก่วน มณฑลกวางตุ้ง 523935 จีน<br>
+                    โทร: +86-769-85167777 | แฟกซ์: +86-769-85167555 | อีเมล: sa01@yueyang-china.com
+                </address>
+                <address>
+                    <strong>โรงงานไทย</strong><br>
+                    123 Moo 4, Tambon Nong Kham, Amphoe Si Racha, Chonburi 20110, Thailand
+                </address>
+                <address>
+                    <strong>ฐานการผลิตเสฉวน</strong><br>
+                    เขตพัฒนาเศรษฐกิจเฉียนเฟิง เมืองกวางอาน มณฑลเสฉวน จีน
+                </address>
+                <address>
+                    <strong>สำนักงานสหรัฐฯ</strong><br>
+                    Newark, New Jersey, US | โทร: +1 (513)-488-2006
+                </address>
+            </div>
+
+            <div class="footer-col">
+                <h4>การรับรองและลิขสิทธิ์</h4>
+                <div class="cert-badges">
+                    <span>UL</span> <span>ISO9001</span> <span>IATF16949</span> <span>ISO13485</span> <span>ISO14001</span>
+                </div>
+                <div class="social-links">
+                    <a href="https://www.facebook.com/yourpage" target="_blank"><i class="fab fa-facebook"></i></a>
+                    <a href="https://www.tiktok.com/@yourhandle" target="_blank"><i class="fab fa-tiktok"></i></a>
+                    <a href="https://line.me/R/ti/p/@your_line_id" target="_blank"><i class="fab fa-line"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fab fa-weixin"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+                <div class="copyright">
+                    © 2026 บริษัท ตงก่วน เยว่หยาง ไวร์ แอนด์ เคเบิล จำกัด<br>粤ICP备XXXXXXXX号
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- 浮动联络栏 -->
+<div class="floating-contact-bar">
+    <div class="contact-btn line-btn" id="lineBtn"><i class="fab fa-line"></i><span class="tooltip">Line ปรึกษา</span></div>
+    <div class="contact-btn inquiry-btn" id="inquiryBtn"><i class="fas fa-envelope"></i><span class="tooltip">สอบถามราคา</span></div>
+    <div class="contact-btn top-btn" id="topBtn"><i class="fas fa-arrow-up"></i><span class="tooltip">กลับด้านบน</span></div>
+</div>
+
+<!-- 询价模态框 -->
+<div class="modal-overlay" id="inquiryModal">
+    <div class="modal-container">
+        <div class="modal-header"><h3>รับโซลูชันที่กำหนดเองทันที</h3><button class="modal-close" id="closeModal">&times;</button></div>
+        <form id="inquiryForm">
+            <input type="text" placeholder="ชื่อของคุณ *" required>
+            <input type="email" placeholder="อีเมล *" required>
+            <textarea rows="3" placeholder="กรุณาอธิบายความต้องการด้านสายเคเบิลของคุณ..."></textarea>
+            <button type="submit" class="submit-btn">ส่งคำขอใบเสนอราคา</button>
+        </form>
+        <div class="modal-note">ทีมงานจะติดต่อกลับภายใน 24 ชั่วโมง</div>
+    </div>
+</div>
+
+<!-- 二维码模态框 (Line) -->
+<div class="modal-overlay" id="qrModal">
+    <div class="modal-container qr-container">
+        <div class="modal-header"><h3>เพิ่มเพื่อนทาง Line</h3><button class="modal-close" id="closeQRModal">&times;</button></div>
+        <div class="qr-code"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200' viewBox='0 0 200 200'%3E%3Crect width='200' height='200' fill='%2306C755'/%3E%3Ctext x='50%25' y='50%25' font-size='14' fill='white' text-anchor='middle' dy='.3em'%3ELine QR Code%3C/text%3E%3C/svg%3E" alt="Line QR"><p>สแกน QR Code เพื่อเพิ่มเพื่อน</p><a href="https://line.me/R/ti/p/@your_line_id" target="_blank" class="line-link">เปิดใน Line</a></div>
+    </div>
+</div>
+
+<script src="../js/script.js"></script>
+<script src="../js/blog.js"></script>
+</body>
+</html>

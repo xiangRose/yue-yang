@@ -1,0 +1,420 @@
+/* ========== about-th.html 专属样式 ========== */
+
+/* 面包屑导航 */
+.breadcrumb {
+    background: #f8fafd;
+    padding: 0.8rem 0;
+    border-bottom: 1px solid rgba(44,125,160,0.1);
+}
+.breadcrumb .container {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    font-size: 0.85rem;
+}
+.breadcrumb a {
+    color: #2c7da0;
+    text-decoration: none;
+}
+.breadcrumb .current {
+    color: #5f7f9e;
+}
+
+/* 公司简介大图区 */
+.about-hero-bg {
+    position: relative;
+    height: 500px;
+    background-size: cover;
+    background-position: center 30%;
+    display: flex;
+    align-items: center;
+}
+.about-hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(0,0,0,0.6) 0%, rgba(0,95,140,0.7) 100%);
+}
+.about-hero-content {
+    position: relative;
+    z-index: 2;
+    color: white;
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+}
+.about-hero-content h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    font-weight: 800;
+}
+.about-hero-content p {
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+    opacity: 0.9;
+}
+.highlight-text {
+    color: #ffd966;
+    font-weight: 700;
+}
+.hero-badge {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+    margin-top: 1rem;
+}
+.hero-badge span {
+    background: rgba(255,255,255,0.15);
+    backdrop-filter: blur(4px);
+    padding: 0.4rem 1.2rem;
+    border-radius: 40px;
+    font-size: 0.9rem;
+}
+@media (max-width: 768px) {
+    .about-hero-bg { height: 400px; }
+    .about-hero-content h2 { font-size: 1.8rem; }
+    .hero-badge { gap: 1rem; }
+}
+
+/* 公司介绍左图右文 */
+.intro-grid {
+    display: flex;
+    gap: 50px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.intro-image {
+    flex: 1;
+    min-width: 280px;
+    border-radius: 32px;
+    overflow: hidden;
+    box-shadow: 0 20px 35px -10px rgba(0,0,0,0.15);
+    transition: transform 0.4s;
+}
+.intro-image:hover {
+    transform: scale(1.01);
+}
+.intro-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+.intro-text {
+    flex: 1;
+}
+.intro-text p {
+    margin-bottom: 1rem;
+    line-height: 1.7;
+    color: #2c3e4e;
+}
+.stats-mini {
+    display: flex;
+    gap: 2rem;
+    margin: 2rem 0;
+    flex-wrap: wrap;
+}
+.stats-mini div {
+    background: #eef4fc;
+    padding: 0.8rem 1.2rem;
+    border-radius: 40px;
+    font-weight: 500;
+}
+.stats-mini span {
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: #2c7da0;
+    display: block;
+}
+.btn-pdf-download {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: #2c7da0;
+    color: white;
+    padding: 12px 24px;
+    border-radius: 40px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s;
+    margin-top: 10px;
+}
+.btn-pdf-download:hover {
+    background: #1f5e7a;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(44,125,160,0.3);
+}
+@media (max-width: 768px) {
+    .intro-grid { flex-direction: column; }
+    .stats-mini { justify-content: center; text-align: center; }
+}
+
+/* 发展历程时间轴 */
+.timeline-section {
+    background: #f9fbfe;
+}
+.timeline {
+    position: relative;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px 0;
+}
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 30px;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: linear-gradient(to bottom, #2c7da0, #8fc1d4);
+    border-radius: 3px;
+}
+.timeline-item {
+    position: relative;
+    padding-left: 70px;
+    margin-bottom: 45px;
+}
+.timeline-dot {
+    position: absolute;
+    left: 22px;
+    top: 5px;
+    width: 18px;
+    height: 18px;
+    background: white;
+    border: 3px solid #2c7da0;
+    border-radius: 50%;
+    z-index: 2;
+    transition: transform 0.2s;
+}
+.timeline-item:hover .timeline-dot {
+    transform: scale(1.3);
+    background: #2c7da0;
+}
+.timeline-date {
+    font-weight: 800;
+    font-size: 1.2rem;
+    color: #2c7da0;
+    margin-bottom: 6px;
+}
+.timeline-content {
+    background: white;
+    padding: 16px 24px;
+    border-radius: 24px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+    transition: all 0.3s;
+}
+.timeline-content:hover {
+    transform: translateX(5px);
+    box-shadow: 0 12px 28px rgba(0,0,0,0.1);
+}
+.timeline-content h4 {
+    font-size: 1.1rem;
+    margin-bottom: 8px;
+    color: #005f8c;
+}
+@media (max-width: 768px) {
+    .timeline::before { left: 20px; }
+    .timeline-item { padding-left: 55px; }
+    .timeline-dot { left: 12px; }
+}
+
+/* 全球化布局卡片 + 悬停浮层 */
+.global-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 20px;
+}
+.global-card {
+    flex: 1;
+    min-width: 220px;
+    background: white;
+    border-radius: 28px;
+    padding: 28px 20px;
+    text-align: center;
+    transition: all 0.3s;
+    cursor: pointer;
+    position: relative;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+    border: 1px solid rgba(44,125,160,0.2);
+}
+.global-card i {
+    font-size: 2.8rem;
+    color: #2c7da0;
+    margin-bottom: 1rem;
+}
+.global-card h3 {
+    font-size: 1.3rem;
+    margin-bottom: 8px;
+}
+.global-card p {
+    color: #5f7f9e;
+    font-size: 0.9rem;
+}
+.global-card .hover-tooltip {
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-10px);
+    background: #1f2e3a;
+    color: white;
+    padding: 8px 16px;
+    border-radius: 40px;
+    font-size: 0.8rem;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.2s;
+    z-index: 10;
+    width: max-content;
+    max-width: 90vw;
+}
+.global-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 35px rgba(44,125,160,0.2);
+    border-color: #2c7da0;
+}
+.global-card:hover .hover-tooltip {
+    opacity: 1;
+    transform: translateX(-50%) translateY(-18px);
+}
+.global-note {
+    text-align: center;
+    font-size: 0.8rem;
+    color: #6c8dae;
+    margin-top: 30px;
+}
+@media (max-width: 768px) {
+    .global-card { min-width: 180px; }
+    .global-card .hover-tooltip { font-size: 0.7rem; white-space: normal; width: 180px; text-align: center; }
+}
+
+/* 资质认证网格 - 固定列宽，确保卡片大小一致 */
+.cert-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 220px));
+    justify-content: center;
+    gap: 30px;
+    margin-top: 20px;
+}
+
+/* 卡片统一样式 */
+.cert-item {
+    background: white;
+    border-radius: 24px;
+    padding: 20px 16px;
+    text-align: center;
+    transition: all 0.3s;
+    cursor: pointer;
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.03);
+    border: 1px solid #eef2f8;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+}
+
+/* 图片统一尺寸 */
+.cert-item img {
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+    margin-bottom: 16px;
+    transition: transform 0.2s;
+}
+
+/* 标题文字 */
+.cert-item p {
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: #1f5e7a;
+    margin: 8px 0 4px;
+}
+
+/* 说明文字（泰语“点击放大”） */
+.cert-hover {
+    font-size: 0.7rem;
+    color: #8ba9c2;
+    margin-top: 8px;
+}
+.cert-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 25px rgba(0,0,0,0.1);
+    border-color: #2c7da0;
+}
+.cert-item:hover img {
+    transform: scale(1.02);
+}
+.cert-note {
+    text-align: center;
+    font-size: 0.75rem;
+    color: #6c8dae;
+    margin-top: 25px;
+}
+
+/* 企业文化三卡片 */
+.culture-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
+}
+.culture-card {
+    flex: 1;
+    min-width: 260px;
+    background: white;
+    border-radius: 32px;
+    padding: 32px 24px;
+    text-align: center;
+    transition: all 0.3s;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+    border-bottom: 4px solid #2c7da0;
+}
+.culture-card i {
+    font-size: 3rem;
+    color: #2c7da0;
+    margin-bottom: 1.2rem;
+}
+.culture-card h3 {
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+}
+.culture-card p {
+    color: #4a627a;
+    line-height: 1.6;
+}
+.culture-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 35px rgba(44,125,160,0.15);
+}
+
+/* 底部PDF按钮样式 */
+.footer-pdf {
+    margin-top: 20px;
+}
+.btn-sm-pdf {
+    display: inline-block;
+    background: rgba(255,255,255,0.1);
+    padding: 6px 14px;
+    border-radius: 40px;
+    font-size: 0.8rem;
+    color: white;
+    text-decoration: none;
+    transition: 0.2s;
+}
+.btn-sm-pdf:hover {
+    background: #2c7da0;
+    transform: translateY(-2px);
+}
+
+/* 证书大图模态框 */
+.cert-modal-container {
+    max-width: 600px;
+}
+.cert-full-img img {
+    width: 100%;
+    border-radius: 16px;
+}

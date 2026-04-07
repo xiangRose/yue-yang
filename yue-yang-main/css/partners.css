@@ -1,0 +1,300 @@
+/* ========== partners.html 专属样式 ========== */
+
+/* 英雄区 */
+.partners-hero {
+    overflow: hidden;        /* 避免任何溢出 */
+}
+.partners-hero-bg {
+    position: relative;
+    height: 500px;           /* 桌面默认高度 */
+    background-size: cover;
+    background-position: center 30%;
+    display: flex;
+    align-items: center;
+}
+
+@media (max-width: 768px) {
+    .partners-hero-bg {
+        height: 350px;       /* 手机高度 */
+    }
+}
+
+@media (orientation: landscape) and (max-height: 600px) {
+    .partners-hero-bg {
+        height: 100vh;       /* 横屏时占满视口高度，避免白边 */
+        min-height: 400px;
+    }
+}
+.partners-hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(0,0,0,0.6) 0%, rgba(0,95,140,0.7) 100%);
+}
+.partners-hero-content {
+    position: relative;
+    z-index: 2;
+    color: white;
+    text-align: center;
+    max-width: 1200px;        /* 增大最大宽度，使内容更宽 */
+    width: 90%;               /* 占父容器宽度的90% */
+    margin: 0 auto;
+    padding: 0 20px;          /* 增加左右内边距，防止贴边 */
+}
+.partners-hero-content h2 {
+    font-size: 2.2rem;
+    margin-bottom: 1rem;
+    font-weight: 800;
+}
+.partners-hero-content p {
+    font-size: 1.1rem;
+    opacity: 0.9;
+}
+@media (orientation: landscape) and (max-height: 600px) {
+    .partners-hero-bg {
+        height: 85vh;         /* 横屏时适当降低高度，避免内容太靠下 */
+    }
+    .partners-hero-content {
+        max-width: 85%;       /* 横屏时让内容更宽 */
+    }
+    .partners-hero-content h2 {
+        font-size: 2rem;      /* 横屏时标题适当缩小 */
+        margin-bottom: 0.8rem;
+    }
+    .partners-hero-content p {
+        font-size: 1rem;
+    }
+}
+
+/* 客户网格 */
+.clients-section {
+    background: white;
+}
+.clients-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 20px;
+}
+.client-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* 使内容上下分布，保证按钮（若有）在底部 */
+    height: 100%; /* 配合父网格 align-items: stretch 实现等高 */
+}
+.client-card p {
+    flex-grow: 1;   /* 描述文字占满剩余空间，使卡片底部对齐 */
+    margin-bottom: 0;
+}
+.client-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 35px rgba(44,125,160,0.15);
+    border-color: #2c7da0;
+}
+.client-logo {
+    width: 120px;
+    height: 120px;
+    object-fit: contain;
+    margin: 0 auto 20px;
+    transition: all 0.3s;
+}
+
+.client-card h3 {
+    font-size: 1.2rem;
+    margin-bottom: 8px;
+    color: #003753;
+}
+.clients-note {
+    text-align: center;
+    font-size: 0.8rem;
+    color: #8ba9c2;
+    margin-top: 30px;
+}
+
+/* 资质认证网格 */
+.certifications-section {
+    background: #f9fbfe;
+}
+.cert-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 220px));
+    justify-content: center;
+    gap: 30px;
+    margin-top: 20px;
+}
+.cert-item {
+    background: white;
+    border-radius: 24px;
+    padding: 20px 16px;
+    text-align: center;
+    transition: all 0.3s;
+    cursor: pointer;
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.03);
+    border: 1px solid #eef2f8;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.cert-item img {
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+    margin-bottom: 16px;
+    transition: transform 0.2s;
+}
+.cert-item p {
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: #1f5e7a;
+    margin: 8px 0 4px;
+}
+.cert-hover {
+    font-size: 0.7rem;
+    color: #8ba9c2;
+    margin-top: 8px;
+}
+.cert-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 25px rgba(0,0,0,0.1);
+    border-color: #2c7da0;
+}
+.cert-item:hover img {
+    transform: scale(1.02);
+}
+.cert-note {
+    text-align: center;
+    font-size: 0.75rem;
+    color: #6c8dae;
+    margin-top: 25px;
+}
+
+/* 设备展示画廊 */
+.equipment-section {
+    background: white;
+}
+.equipment-slider {
+    display: flex;
+    overflow-x: auto;
+    gap: 20px;
+    padding: 20px 0 30px;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    /* 关键：让滚动区域占满宽度，内容可滚动 */
+    width: 100%;
+    scrollbar-width: thin;
+}
+.equipment-slider::-webkit-scrollbar {
+    height: 6px;
+}
+.equipment-slider::-webkit-scrollbar-track {
+    background: #eef2f8;
+    border-radius: 10px;
+}
+.equipment-slider::-webkit-scrollbar-thumb {
+    background: #2c7da0;
+    border-radius: 10px;
+}
+.equipment-item {
+    flex: 0 0 auto;
+    width: 260px;              /* 固定宽度，避免被压缩 */
+    scroll-snap-align: start;
+    border-radius: 20px;
+    overflow: hidden;
+    background: white;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    transition: transform 0.3s;
+    cursor: pointer;
+}
+.equipment-item:hover {
+    transform: translateY(-5px);
+}
+.equipment-item img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    display: block;
+}
+.equipment-caption {
+    padding: 12px;
+    text-align: center;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: #2c7da0;
+    background: white;
+}
+@media (max-width: 768px) {
+    .equipment-item {
+        width: 220px;
+    }
+    .equipment-slider {
+        gap: 15px;
+        padding: 15px 0 25px;
+    }
+}
+/* 合作案例数据区 */
+.case-section {
+    background: #f9fbfe;
+}
+.case-stats {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+}
+.case-card {
+    flex: 1;
+    min-width: 220px;
+    background: white;
+    border-radius: 32px;
+    padding: 35px 20px;
+    text-align: center;
+    transition: all 0.3s;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+}
+.case-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 35px rgba(44,125,160,0.15);
+}
+.case-card i {
+    font-size: 3rem;
+    color: #2c7da0;
+    margin-bottom: 20px;
+}
+.case-card .stat-number {
+    font-size: 2.8rem;
+    font-weight: 800;
+    color: #2c7da0;
+    display: block;
+    line-height: 1;
+}
+.case-card p {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin: 12px 0 5px;
+    color: #003753;
+}
+.case-card small {
+    font-size: 0.8rem;
+    color: #8ba9c2;
+}
+
+/* 响应式适配 */
+@media (max-width: 768px) {
+    .clients-grid {
+        grid-template-columns: 1fr;
+    }
+    .cert-grid {
+        grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    }
+    .equipment-item {
+        flex: 0 0 220px;
+    }
+    .case-stats {
+        flex-direction: column;
+    }
+    .case-card {
+        min-width: auto;
+    }
+}
