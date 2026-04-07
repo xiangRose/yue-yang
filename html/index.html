@@ -29,14 +29,15 @@
                 <li><a href="products.html">ผลิตภัณฑ์</a></li>
                 <li><a href="factory.html">ฐานการผลิต</a></li>
                 <li><a href="partners.html">พันธมิตร</a></li>
+                <li><a href="blog.html">บทความ</a></li>
                 <li><a href="contact.html">ติดต่อเรา</a></li>
             </ul>
         </nav>
         <div class="header-right">
             <div class="lang-toggle">
-                <span class="lang active">TH</span>
+                <a href="index.html" class="lang">TH</a>
                 <span class="split">|</span>
-                <span class="lang">EN</span>
+                <a href="index-en.html" class="lang active">EN</a>
             </div>
             <div class="hamburger" id="hamburger">
                 <span></span><span></span><span></span>
@@ -49,6 +50,7 @@
 <section class="hero">
     <div class="swiper">
         <div class="swiper-wrapper">
+            <!-- Slide 1: 自动化生产线 -->
             <div class="swiper-slide">
                 <img src="../images/hero1.webp" alt="สายการผลิตอัตโนมัติ">
                 <div class="hero-content">
@@ -60,7 +62,34 @@
                     </div>
                 </div>
             </div>
+            <!-- Slide 2: 产品应用场景（医疗/汽车） -->
+            <div class="swiper-slide">
+                <img src="../images/hero2.webp" alt="สายเคเบิลสำหรับการแพทย์และยานยนต์">
+                <div class="hero-content">
+                    <h1>โซลูชันสายเคเบิลคุณภาพสูงสำหรับทุกอุตสาหกรรม</h1>
+                    <p>ตอบโจทย์การใช้งานในด้านการแพทย์ ยานยนต์ ระบบรักษาความปลอดภัย และพลังงานใหม่</p>
+                    <div class="hero-buttons">
+                        <a href="#inquiry-form" class="btn btn-primary">ปรึกษาโซลูชันที่กำหนดเองทันที</a>
+                        <a href="/catalog.pdf" class="btn btn-secondary">ดาวน์โหลดแค็ตตาล็อกสินค้า (PDF)</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Slide 3: 全球工厂与技术 -->
+            <div class="swiper-slide">
+                <img src="../images/hero3.webp" alt="ฐานการผลิตและเทคโนโลยีระดับโลก">
+                <div class="hero-content">
+                    <h1>เครือข่ายการผลิตระดับโลก พร้อมรองรับทุกความต้องการ</h1>
+                    <p>5 ฐานการผลิตในจีน ไทย และสหรัฐอเมริกา พร้อมทีมงานมืออาชีพคอยให้บริการ</p>
+                    <div class="hero-buttons">
+                        <a href="#inquiry-form" class="btn btn-primary">ปรึกษาโซลูชันที่กำหนดเองทันที</a>
+                        <a href="/catalog.pdf" class="btn btn-secondary">ดาวน์โหลดแค็ตตาล็อกสินค้า (PDF)</a>
+                    </div>
+                </div>
+            </div>
         </div>
+        <div class="swiper-button-prev swiper-button"><i class="fas fa-chevron-left"></i></div>
+        <div class="swiper-button-next swiper-button"><i class="fas fa-chevron-right"></i></div>
+        <div class="swiper-pagination"></div>
     </div>
 </section>
 
@@ -98,31 +127,31 @@
         <h2 class="section-title">ศูนย์ผลิตภัณฑ์หลัก</h2>
         <div class="products-grid">
             <div class="product-card">
-                <div class="product-img" style="background-image: url(../images/index_product_medicine.jpg);"></div>
+                <div class="product-img" style="background-image: url(../images/index_product_medicine.webp);"></div>
                 <h3>ชุดสายเคเบิลทางการแพทย์</h3>
                 <p>ความยืดหยุ่นสูง แรงดึงสูง ทนทานต่อการดัดงอ</p>
                 <div class="overlay">ผ่านการรับรองมาตรฐาน ISO13485 เหมาะสำหรับการใช้งานระดับสูง เช่น อุปกรณ์ศัลยกรรม อุปกรณ์เฝ้าระวังสุขภาพ และอื่นๆ</div>
             </div>
             <div class="product-card">
-                <div class="product-img" style="background-image: url(../images/index_product_car.jpg);"></div>
+                <div class="product-img" style="background-image: url(../images/index_product_car.webp);"></div>
                 <h3>ชุดสายไฟรถยนต์</h3>
                 <p>มีประสิทธิภาพการป้องกันสัญญาณรบกวนสูง เหมาะกับสภาพแวดล้อมที่รุนแรง</p>
                 <div class="overlay">ต้านสัญญาณรบกวน ทนอุณหภูมิสูง ใช้งานได้อย่างกว้างขวางในรถยนต์พลังงานใหม่และรถยนต์ธรรมดา</div>
             </div>
             <div class="product-card">
-                <div class="product-img" style="background-image: url(../images/index_product_safe.jpg);"></div>
+                <div class="product-img" style="background-image: url(../images/index_product_safe.webp);"></div>
                 <h3>สายเคเบิลสำหรับระบบรักษาความปลอดภัย</h3>
                 <p>รวมสัญญาณวิดีโอและไฟฟ้าในเส้นเดียว กันน้ำ ทนทานต่อแรงตัด</p>
                 <div class="overlay">สนับสนุนการจ่ายไฟผ่านสายเครือข่าย POE การส่งข้อมูลระยะไกลมีเสถียรภาพและเชื่อถือได้</div>
             </div>
             <div class="product-card">
-                <div class="product-img" style="background-image: url(../images/index_product_controller.jpg);"></div>
+                <div class="product-img" style="background-image: url(../images/index_product_controller.webp);"></div>
                 <h3>สายเคเบิลควบคุมอุตสาหกรรม</h3>
                 <p>ทนทานต่อการเสียดสีสูง ทนน้ำมัน ทนต่อการดัดงอ</p>
                 <div class="overlay">สายเคเบิลสำหรับโซ่ลาก สายเคเบิลหุ่นยนต์ มีอายุการใช้งานที่สามารถโค้งงอได้มากกว่าหนึ่งล้านครั้ง</div>
             </div>
             <div class="product-card">
-                <div class="product-img" style="background-image: url(../images/index_product_sun.jpg);"></div>
+                <div class="product-img" style="background-image: url(../images/index_product_sun.webp);"></div>
                 <h3>สายเคเบิลระบบกักเก็บพลังงาน/โซลาร์เซลล์</h3>
                 <p>สายเคเบิลเฉพาะสำหรับโซลาร์เซลล์ ทนต่อรังสียูวี ทนทานต่อการเสื่อมสภาพ</p>
                 <div class="overlay">ผ่านการรับรอง TÜV สนับสนุนการส่งกระแสไฟฟ้าขนาดใหญ่ รับรองความปลอดภัยของระบบโซลาร์เซลล์</div>
@@ -160,12 +189,12 @@
     <div class="container">
         <h2 class="section-title">พันธมิตรระดับโลก</h2>
         <div class="partner-slider">
-            <div class="partner-item">Logitech<img src="../images/logo_logitech.png" alt="Logitech - พันธมิตรอุปกรณ์ต่อพ่วงระดับโลก"></div>
-            <div class="partner-item">Huawei<img src="../images/huawei.png" alt="Huawei - พันธมิตรลูกค้าปลายทาง"></div>
-            <div class="partner-item">vivo<img src="../images/vivo.png" alt="vivo - พันธมิตรเชิงกลยุทธ์ระยะยาว"></div>
-            <div class="partner-item">Razer<img src="../images/razer.png" alt="Razer - พันธมิตรอุปกรณ์เกมมิ่งมืออาชีพ"></div>
-            <div class="partner-item">Anker<img src="../images/logo_anker.png" alt="Anker - พันธมิตรอุปกรณ์อิเล็กทรอนิกส์เพื่อผู้บริโภค"></div>
-            <div class="partner-item">Siemens<img src="../images/logo_siemens.png" alt="Siemens - พันธมิตรด้านระบบอัตโนมัติ"></div>
+            <div class="partner-item">Logitech<img src="../images/logo_logitech.webp" alt="Logitech - พันธมิตรอุปกรณ์ต่อพ่วงระดับโลก"></div>
+            <div class="partner-item">Huawei<img src="../images/logo_huawei.webp" alt="Huawei - พันธมิตรลูกค้าปลายทาง"></div>
+            <div class="partner-item">vivo<img src="../images/logo_vivo.webp" alt="vivo - พันธมิตรเชิงกลยุทธ์ระยะยาว"></div>
+            <div class="partner-item">Razer<img src="../images/logo_razer.webp" alt="Razer - พันธมิตรอุปกรณ์เกมมิ่งมืออาชีพ"></div>
+            <div class="partner-item">Anker<img src="../images/logo_anker.webp" alt="Anker - พันธมิตรอุปกรณ์อิเล็กทรอนิกส์เพื่อผู้บริโภค"></div>
+            <div class="partner-item">Siemens<img src="../images/logo_siemens.webp" alt="Siemens - พันธมิตรด้านระบบอัตโนมัติ"></div>
         </div>
     </div>
 </section>
@@ -174,7 +203,6 @@
 <footer class="footer">
     <div class="container footer-container">
         <div class="footer-grid">
-            <!-- 第一列：快速链接 -->
             <div class="footer-col">
                 <h4>ลิงก์ด่วน</h4>
                 <ul>
@@ -191,7 +219,6 @@
                 </div>
             </div>
 
-            <!-- 第二列：全球联系与服务（紧凑排版） -->
             <div class="footer-col">
                 <h4>การติดต่อและบริการทั่วโลก</h4>
                 <address>
@@ -213,13 +240,15 @@
                 </address>
             </div>
 
-            <!-- 第三列：资质认证与版权（紧凑） -->
             <div class="footer-col">
                 <h4>การรับรองและลิขสิทธิ์</h4>
                 <div class="cert-badges">
                     <span>UL</span> <span>ISO9001</span> <span>IATF16949</span> <span>ISO13485</span> <span>ISO14001</span>
                 </div>
                 <div class="social-links">
+                    <a href="https://www.facebook.com/yourpage" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook"></i></a>
+                    <a href="https://www.tiktok.com/@yourhandle" target="_blank" rel="noopener noreferrer"><i class="fab fa-tiktok"></i></a>
+                    <a href="https://line.me/R/ti/p/@your_line_id" target="_blank" rel="noopener noreferrer"><i class="fab fa-line"></i></a>
                     <a href="#"><i class="fab fa-linkedin"></i></a>
                     <a href="#"><i class="fab fa-weixin"></i></a>
                     <a href="#"><i class="fab fa-youtube"></i></a>

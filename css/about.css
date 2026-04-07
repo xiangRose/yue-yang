@@ -23,7 +23,7 @@
 /* 公司简介大图区 */
 .about-hero-bg {
     position: relative;
-    height: 480px;
+    height: 500px;
     background-size: cover;
     background-position: center 30%;
     display: flex;

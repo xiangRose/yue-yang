@@ -6,7 +6,7 @@
 }
 .partners-hero-bg {
     position: relative;
-    height: 650px;           /* 桌面默认高度 */
+    height: 500px;           /* 桌面默认高度 */
     background-size: cover;
     background-position: center 30%;
     display: flex;

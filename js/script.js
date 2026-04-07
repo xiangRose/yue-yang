@@ -1,4 +1,22 @@
 document.addEventListener('DOMContentLoaded', function() {
+     // 轮播图相关变量和函数
+    let current = 0;
+    const total = document.querySelectorAll('.swiper-slide').length;
+    
+    function goToSlide(index) {
+        // 边界处理、更新 transform 等逻辑
+        current = (index + total) % total;
+        const wrapper = document.querySelector('.swiper-wrapper');
+        wrapper.style.transform = `translateX(-${current * 100}%)`;
+    }
+    
+    // 获取按钮并绑定事件
+    const prevBtn = document.querySelector('.swiper-button-prev');
+    const nextBtn = document.querySelector('.swiper-button-next');
+    if (prevBtn && nextBtn) {
+        prevBtn.addEventListener('click', () => goToSlide(current - 1));
+        nextBtn.addEventListener('click', () => goToSlide(current + 1));
+    }
     // ========== 1. 移动端菜单 ==========
     const hamburger = document.getElementById('hamburger');
     const navWrapper = document.getElementById('navWrapper');

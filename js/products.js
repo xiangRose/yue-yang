@@ -24,13 +24,19 @@
             return;
         }
         if (!emailInput.value.trim() || !/^\S+@\S+\.\S+$/.test(emailInput.value)) {
-            alert('กรุณากรอกอีเมลให้ถูกต้อง');
+            showAlertModal('กรุณากรอกอีเมลให้ถูกต้อง');
             emailInput.focus();
             return;
         }
         if (!categorySelect.value) {
-            alert('กรุณาเลือกหมวดหมู่สินค้า');
+            showAlertModal('กรุณาเลือกหมวดหมู่สินค้า');
             categorySelect.focus();
+            return;
+        }
+        // 验证失败时
+        if (!nameInput.value.trim()) {
+            showAlertModal('กรุณากรอกข้อมูล', 'กรุณากรอกชื่อของคุณ', false);
+            nameInput.focus();
             return;
         }
 
@@ -55,20 +61,59 @@
             });
             const result = await response.json();
             if (response.ok && result.success) {
-                alert('✅ ส่งคำขอสำเร็จ! เราจะติดต่อกลับโดยเร็วที่สุด');
+                showAlertModal(' ส่งคำขอสำเร็จ! เราจะติดต่อกลับโดยเร็วที่สุด');
                 form.reset();
             } else {
-                alert(`เกิดข้อผิดพลาด: ${result.error || 'กรุณาลองใหม่'}`);
+                showAlertModal(`เกิดข้อผิดพลาด: ${result.error || 'กรุณาลองใหม่'}`);
             }
         } catch (err) {
             console.error('网络错误:', err);
-            alert('ไม่สามารถเชื่อมต่อเซิร์ฟเวอร์ได้');
+            showAlertModal('ไม่สามารถเชื่อมต่อเซิร์ฟเวอร์ได้');
         } finally {
             submitBtn.disabled = false;
             submitBtn.innerText = originalText;
         }
     }
 
+    // 显示居中模态框
+    function showAlertModal(title, message, isSuccess = true) {
+        const modal = document.getElementById('customAlertModal');
+        const iconDiv = document.getElementById('alertIcon');
+        const titleEl = document.getElementById('alertTitle');
+        const msgEl = document.getElementById('alertMessage');
+        
+        // 设置图标和样式
+        if (isSuccess) {
+            iconDiv.innerHTML = '<i class="fas fa-check-circle"></i>';
+            iconDiv.className = 'alert-icon success';
+            titleEl.style.color = '#2c7da0';
+        } else {
+            iconDiv.innerHTML = '<i class="fas fa-exclamation-triangle"></i>';
+            iconDiv.className = 'alert-icon error';
+            titleEl.style.color = '#e74c3c';
+        }
+        
+        titleEl.textContent = title;
+        msgEl.textContent = message;
+        
+        // 显示模态框
+        modal.classList.add('show');
+        
+        // 绑定确认按钮事件（先移除旧的，避免重复绑定）
+        const confirmBtn = document.getElementById('alertConfirmBtn');
+        const closeHandler = () => {
+            modal.classList.remove('show');
+            confirmBtn.removeEventListener('click', closeHandler);
+        };
+        confirmBtn.addEventListener('click', closeHandler);
+        
+        // 点击背景关闭（可选）
+        modal.addEventListener('click', function(e) {
+            if (e.target === modal) {
+                modal.classList.remove('show');
+            }
+        });
+    }
     function initProductPage() {
         // ---------- 1. 询价表单（Airtable 集成） ----------
         const inquiryForm = document.getElementById('productInquiryForm');

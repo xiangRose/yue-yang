@@ -51,6 +51,7 @@
                 <li><a href="products.html" class="active">ผลิตภัณฑ์</a></li>
                 <li><a href="factory.html">ฐานการผลิต</a></li>
                 <li><a href="partners.html">พันธมิตร</a></li>
+                <li><a href="blog.html">บทความ</a></li>
                 <li><a href="contact.html">ติดต่อเรา</a></li>
             </ul>
         </nav>
@@ -227,7 +228,7 @@
 
             <div class="product-grid">
                 <div class="product-card" data-product-id="med1">
-                    <div class="product-img"><img src="../images/product-medicine1.webp" alt="High-Flex Medical TPU Cable"></div>
+                    <div class="product-img"><img src="../images/product_medicine1.webp" alt="High-Flex Medical TPU Cable"></div>
                     <div class="product-info">
                         <h3>สายเคเบิลทางการแพทย์ TPU ไร้ฮาโลเจน ความยืดหยุ่นสูง <span>High-Flex Medical TPU Cable</span></h3>
                         <p>ลวดทองแดง绞黄旦丝 ทนทานการดัดงอสูง ปลอก TPU เกรดการแพทย์</p>
@@ -240,7 +241,7 @@
                 </div>
 
                 <div class="product-card" data-product-id="med2">
-                    <div class="product-img"><img src="../images/product-medicine2.webp" alt="Medical USB 2.0 Cable"></div>
+                    <div class="product-img"><img src="../images/product_medicine2.webp" alt="Medical USB 2.0 Cable"></div>
                     <div class="product-info">
                         <h3>สายเคเบิล USB 2.0 ทางการแพทย์ <span>Medical USB 2.0 Cable</span></h3>
                         <p>ปลอก PVC เกรดการแพทย์ ปลอดสาร Phthalate ปราศจากพลวง</p>
@@ -253,7 +254,7 @@
                 </div>
 
                 <div class="product-card" data-product-id="med3">
-                    <div class="product-img"><img src="../images/product-medicine3.webp" alt="Penumbra Lightning Wire"></div>
+                    <div class="product-img"><img src="../images/product_medicine3.webp" alt="Penumbra Lightning Wire"></div>
                            <div class="product-info">
                                     <h3>สายเคเบิล Penumbra Lightning <span>Penumbra Lightning Wire</span></h3>
                                     <p>โครงสร้างท่อกลวง + สายส่งข้อมูล ออกแบบสำหรับผลิตภัณฑ์ดูดซับลิ่มเลือด</p>
@@ -546,6 +547,7 @@
         </div>
     </section>
 
+    
     <!-- 底部询价表单区域 -->
     <section class="inquiry-section" id="inquiry-form">
         <div class="container">
@@ -577,7 +579,6 @@
 <footer class="footer">
     <div class="container footer-container">
         <div class="footer-grid">
-            <!-- 第一列：快速链接 -->
             <div class="footer-col">
                 <h4>ลิงก์ด่วน</h4>
                 <ul>
@@ -594,7 +595,6 @@
                 </div>
             </div>
 
-            <!-- 第二列：全球联系与服务（紧凑排版） -->
             <div class="footer-col">
                 <h4>การติดต่อและบริการทั่วโลก</h4>
                 <address>
@@ -616,13 +616,15 @@
                 </address>
             </div>
 
-            <!-- 第三列：资质认证与版权（紧凑） -->
             <div class="footer-col">
                 <h4>การรับรองและลิขสิทธิ์</h4>
                 <div class="cert-badges">
                     <span>UL</span> <span>ISO9001</span> <span>IATF16949</span> <span>ISO13485</span> <span>ISO14001</span>
                 </div>
                 <div class="social-links">
+                    <a href="https://www.facebook.com/yourpage" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook"></i></a>
+                    <a href="https://www.tiktok.com/@yourhandle" target="_blank" rel="noopener noreferrer"><i class="fab fa-tiktok"></i></a>
+                    <a href="https://line.me/R/ti/p/@your_line_id" target="_blank" rel="noopener noreferrer"><i class="fab fa-line"></i></a>
                     <a href="#"><i class="fab fa-linkedin"></i></a>
                     <a href="#"><i class="fab fa-weixin"></i></a>
                     <a href="#"><i class="fab fa-youtube"></i></a>
@@ -658,6 +660,16 @@
                 </div>
             </div>
         </div>
+    </div>
+</div>
+
+<!-- 自定义提示模态框 (居中弹窗) -->
+<div id="customAlertModal" class="alert-modal">
+    <div class="alert-modal-content">
+        <div class="alert-icon" id="alertIcon"><i class="fas fa-check-circle"></i></div>
+        <h3 id="alertTitle">ส่งคำขอสำเร็จ!</h3>
+        <p id="alertMessage">เราจะติดต่อกลับโดยเร็วที่สุด</p>
+        <button id="alertConfirmBtn" class="alert-btn">ตกลง</button>
     </div>
 </div>
 
