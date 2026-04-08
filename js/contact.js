@@ -87,7 +87,7 @@ document.addEventListener('DOMContentLoaded', function() {
             submitBtn.innerText = 'กำลังส่ง...';
 
             try {
-                const response = await fetch('https://yue-yang.vercel.app/api/inquiry', {
+                const response = await fetch('/api/inquiry', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ fields })
