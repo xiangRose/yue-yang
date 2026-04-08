@@ -7,10 +7,8 @@ app.use(express.json());
 
 // 写死你刚才测试成功的确切 ID
 const BASE_ID = 'appmnO59myOxJm3ip';
-// 注意：请确认下面这两个 ID，哪个是文章，哪个是询价！
-// 假设 tblFioq03WevqdHEV 是文章表，tbliFmZlghWGR5O47 是询价表
-const BLOG_TABLE_ID = 'tblFioq03WevqdHEV';   
-const INQUIRY_TABLE_ID = 'tbliFmZlghWGR5O47'; 
+const BLOG_TABLE_ID = 'tbliFmZlghWGR5O47';   
+const INQUIRY_TABLE_ID = 'tblFioq03WevqdHEV'; 
 
 // 统一请求函数
 async function fetchAirtable(tableId, method = 'GET', body = null) {
