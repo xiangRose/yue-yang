@@ -5,7 +5,6 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-// 写死你刚才测试成功的确切 ID
 const BASE_ID = 'appmnO59myOxJm3ip';
 const BLOG_TABLE_ID = 'tbliFmZlghWGR5O47';   
 const INQUIRY_TABLE_ID = 'tblFioq03WevqdHEV'; 
@@ -16,6 +15,7 @@ async function fetchAirtable(tableId, method = 'GET', body = null) {
     const options = {
         method: method,
         headers: { 
+            // 如果 Vercel 读不到这个，就会报 Invalid authentication token
             'Authorization': `Bearer ${process.env.AIRTABLE_API_KEY}`,
             'Content-Type': 'application/json'
         }
@@ -30,6 +30,8 @@ async function fetchAirtable(tableId, method = 'GET', body = null) {
     }
     return data;
 }
+
+// ... 后面的 app.get 和 app.post 保持不变 ...
 
 // 1. 获取博客文章
 app.get('/api/blog-posts', async (req, res) => {
