@@ -59,7 +59,11 @@ app.post('/api/inquiry', async (req, res) => {
     try {
         const payload = { fields: req.body.fields };
         const data = await fetchAirtable(INQUIRY_TABLE_ID, 'POST', payload);
-        res.json(data);
+        res.json({ 
+            success: true, 
+            id: data.id,
+            record: data 
+        });
     } catch (err) { 
         res.status(500).json({ error: err.message }); 
     }
