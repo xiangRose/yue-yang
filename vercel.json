@@ -7,8 +7,18 @@
     { "src": "js/**/*", "use": "@vercel/static" },
     { "src": "images/**/*", "use": "@vercel/static" }
   ],
-  "routes":[
-    { "src": "/api/(.*)", "dest": "/server.js" },
-    { "src": "/(.*)", "dest": "/html/$1" }
+  "headers":[
+    {
+      "source": "/api/(.*)",
+      "headers":[
+        { "key": "Access-Control-Allow-Origin", "value": "*" },
+        { "key": "Access-Control-Allow-Methods", "value": "GET,OPTIONS,PATCH,DELETE,POST,PUT" },
+        { "key": "Access-Control-Allow-Headers", "value": "X-Requested-With, Content-Type, Authorization" }
+      ]
+    }
+  ],
+  "rewrites":[
+    { "source": "/api/(.*)", "destination": "/server.js" },
+    { "source": "/(.*)", "destination": "/html/$1" }
   ]
 }
