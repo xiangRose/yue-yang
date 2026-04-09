@@ -31,7 +31,7 @@
 </head>
 <body>
 
-<!-- ========== 头部 (与首页完全一致) ========== -->
+<!-- ========== 头部 ========== -->
 <header class="site-header">
     <div class="header-container">
         <div class="logo-area">
@@ -56,9 +56,9 @@
         </nav>
         <div class="header-right">
             <div class="lang-toggle">
-                <a href="factory.html" class="lang">TH</a>
+                <a href="factory.html" class="lang active">ไทย</a>
                 <span class="split">|</span>
-                <a href="factory-en.html" class="lang active">EN</a>
+                <a href="factory-en.html" class="lang">อังกฤษ</a>
             </div>
             <div class="hamburger" id="hamburger">
                 <span></span><span></span><span></span>
@@ -67,16 +67,7 @@
     </div>
 </header>
 
-<!-- ========== 面包屑导航 ========== -->
-<nav class="breadcrumb">
-    <div class="container">
-        <a href="index.html">หน้าแรก</a>
-        <span>/</span>
-        <span class="current">ฐานการผลิต</span>
-    </div>
-</nav>
-
-<!-- ========== 页面主要内容区域 ========== -->
+<!-- ========== 页面主要内容 ========== -->
 
 <!-- 英雄区：工厂概览 -->
 <section class="factory-hero">
@@ -97,10 +88,8 @@
 <!-- 全球地图交互模块 -->
 <div class="global-map-wrapper">
     <div class="map-container" id="mapContainer">
-        <!-- 世界地图背景图片 -->
         <img src="../images/world_map.webp" alt="แผนที่โลก" class="world-map-bg">
         
-        <!-- 工厂标记点 (所有文字已改为泰语) -->
         <div class="map-marker" data-name="สำนักงานใหญ่ตงก่วน" data-img="../images/dongguan_factory.webp" data-desc="ศูนย์วิจัยและพัฒนา การผลิตสายเคเบิล PVC และไร้ฮาโลเจน พื้นที่ 25,000 ตร.ม." style="top: 53%; left: 73.5%;">
             <div class="pulse-dot"></div>
             <div class="marker-label">สำนักงานใหญ่ตงก่วน</div>
@@ -118,7 +107,6 @@
             <div class="marker-label">ศูนย์บริการสหรัฐฯ</div>
         </div>
     </div>
-    <!-- 自定义提示框 (泰语) -->
     <div id="mapTooltip" class="map-tooltip" style="display: none;">
         <img id="tooltipImg" src="" alt="โรงงาน">
         <div class="tooltip-content">
@@ -128,7 +116,7 @@
     </div>
 </div>
 
-<!-- 四大生产基地详细卡片 (所有文字泰语) -->
+<!-- 四大生产基地详细卡片 -->
 <section class="section factories-grid-section">
     <div class="container">
         <h2 class="section-title">ฐานการผลิตของเรา</h2>
@@ -138,7 +126,7 @@
                 <div class="factory-info">
                     <h3>สำนักงานใหญ่ตงก่วน</h3>
                     <div class="location"><i class="fas fa-map-pin"></i> หูเหมิน, ตงก่วน</div>
-                    <p>ก่อตั้งปี 2002 เป็นศูนย์กลางการวิจัยพัฒนา ผลิต และจำหน่าย มีสายการผลิต绞銅、押出、ถักเปียที่ทันสมัย มูลค่าผลผลิตกว่า 30 ล้านเหรียญสหรัฐต่อปี</p>
+                    <p>ก่อตั้งปี 2002 เป็นศูนย์กลางการวิจัยพัฒนา ผลิต และจำหน่าย มีสายการผลิตการบิดทองแดง、การอัดขึ้นรูป、การถักเปียที่ทันสมัย มูลค่าผลผลิตกว่า 30 ล้านเหรียญสหรัฐต่อปี</p>
                     <span class="factory-badge">โรงงานรับรอง UL</span>
                     <span class="factory-badge">ISO9001</span>
                 </div>
@@ -177,48 +165,40 @@
     </div>
 </section>
 
-<!-- 生产车间展示 (横向滚动画廊) -->
-<!-- 生产车间展示 (横向滚动画廊) -->
+<!-- 生产车间展示 -->
 <section class="section gallery-section">
     <div class="container">
         <h2 class="section-title">ภาพรวมสายการผลิตอัจฉริยะ</h2>
         <div class="gallery-slider">
-            <!-- 1. 绞铜生产线 -->
             <div class="gallery-item">
-                <img src="../images/production_twisting.webp" alt="สายการผลิต绞銅อัตโนมัติ">
-                <div class="gallery-caption">สายการผลิต绞銅อัตโนมัติ</div>
+                <img src="../images/production_twisting.webp" alt="สายการผลิตการบิดทองแดงอัตโนมัติ">
+                <div class="gallery-caption">สายการผลิตการบิดทองแดงอัตโนมัติ</div>
             </div>
-            <!-- 2. 发泡PE押出线 -->
             <div class="gallery-item">
-                <img src="../images/extrusion_pefoam.webp" alt="สายการผลิต押出 PE โฟม">
-                <div class="gallery-caption">สายการผลิต押出 PE โฟม</div>
+                <img src="../images/extrusion_pefoam.webp" alt="สายการผลิตการอัดขึ้นรูป PE โฟม">
+                <div class="gallery-caption">สายการผลิตการอัดขึ้นรูป PE โฟม</div>
             </div>
-            <!-- 3. 同轴卧式缠绕机 -->
             <div class="gallery-item">
                 <img src="../images/coaxial_winding.webp" alt="เครื่องพันสายโคแอกเชียลแนวนอน">
                 <div class="gallery-caption">เครื่องพันสายโคแอกเชียลแนวนอน</div>
             </div>
-           
-            <!-- 4. 外被押出生产线 -->
             <div class="gallery-item">
-                <img src="../images/extrusion_jacket.webp" alt="สายการผลิต押ดปลอกหุ้ม">
-                <div class="gallery-caption">สายการผลิต押ดปลอกหุ้ม</div>
+                <img src="../images/extrusion_jacket.webp" alt="สายการผลิตการอัดขึ้นรูปปลอกหุ้ม">
+                <div class="gallery-caption">สายการผลิตการอัดขึ้นรูปปลอกหุ้ม</div>
             </div>
-            <!-- 5. USB3.0-4.0 三芯绞设备 -->
             <div class="gallery-item">
-                <img src="../images/usb_triple_twisting.webp" alt="เครื่อง绞สามแกน USB3.0-4.0">
-                <div class="gallery-caption">เครื่อง绞สามแกน USB3.0-4.0</div>
+                <img src="../images/usb_triple_twisting.webp" alt="เครื่องบิดสามแกน USB3.0-4.0">
+                <div class="gallery-caption">เครื่องบิดสามแกน USB3.0-4.0</div>
             </div>
-             <!-- 6. 铁氟龙押出生产线 -->
             <div class="gallery-item">
-                <img src="../images/extrusion_ptfe.webp" alt="สายการผลิต押出 PTFE">
-                <div class="gallery-caption">สายการผลิต押出 PTFE</div>
+                <img src="../images/extrusion_ptfe.webp" alt="สายการผลิตการอัดขึ้นรูป PTFE">
+                <div class="gallery-caption">สายการผลิตการอัดขึ้นรูป PTFE</div>
             </div>
         </div>
     </div>
 </section>
 
-<!-- 产能与认证数据 (数字滚动效果) -->
+<!-- 产能与认证数据 -->
 <section class="section capacity-section">
     <div class="container">
         <div class="capacity-stats">
@@ -246,7 +226,7 @@
     </div>
 </section>
 
-<!-- ========== 底部栏 (泰语版) ========== -->
+<!-- ========== 底部栏 ========== -->
 <footer class="footer">
     <div class="container footer-container">
         <div class="footer-grid">
@@ -275,7 +255,7 @@
                 </address>
                 <address>
                     <strong>โรงงานไทย</strong><br>
-                    123 Moo 4, Tambon Nong Kham, Amphoe Si Racha, Chonburi 20110, Thailand
+                    123 หมู่ 4 ตำบลหนองขาม อำเภอศรีราชา จังหวัดชลบุรี 20110 ประเทศไทย
                 </address>
                 <address>
                     <strong>ฐานการผลิตเสฉวน</strong><br>
@@ -283,7 +263,7 @@
                 </address>
                 <address>
                     <strong>สำนักงานสหรัฐฯ</strong><br>
-                    Newark, New Jersey, US | โทร: +1 (513)-488-2006
+                    นวร์ก, รัฐนิวเจอร์ซีย์, สหรัฐอเมริกา | โทร: +1 (513)-488-2006
                 </address>
             </div>
 
@@ -301,42 +281,27 @@
                     <a href="#"><i class="fab fa-youtube"></i></a>
                 </div>
                 <div class="copyright">
-                    © 2026 บริษัท ตงก่วน เยว่หยาง ไวร์ แอนด์ เคเบิล จำกัด<br>粤ICP备XXXXXXXX号
+                    © 2026 บริษัท ตงก่วน เยว่หยาง ไวร์ แอนด์ เคเบิล จำกัด<br>หมายเลขทะเบียน ICP: XXXXXXXXX
                 </div>
             </div>
         </div>
     </div>
 </footer>
 
-<!-- 浮动联络栏 (泰语提示) -->
+<!-- 浮动联络栏 -->
 <div class="floating-contact-bar">
-    <div class="contact-btn line-btn" id="lineBtn"><i class="fab fa-line"></i><span class="tooltip">ปรึกษาผ่าน Line</span></div>
-    <div class="contact-btn inquiry-btn" id="inquiryBtn"><i class="fas fa-envelope"></i><span class="tooltip">สอบถามราคา</span></div>
+    <div class="contact-btn line-btn" id="lineBtn"><i class="fab fa-line"></i><span class="tooltip">ปรึกษาผ่าน ไลน์</span></div>
     <div class="contact-btn top-btn" id="topBtn"><i class="fas fa-arrow-up"></i><span class="tooltip">กลับด้านบน</span></div>
 </div>
 
-<!-- 询价模态框 (泰语) -->
-<div class="modal-overlay" id="inquiryModal">
-    <div class="modal-container">
-        <div class="modal-header"><h3>รับโซลูชันที่กำหนดเองทันที</h3><button class="modal-close" id="closeModal">&times;</button></div>
-        <form id="inquiryForm">
-            <input type="text" placeholder="ชื่อของคุณ *" required>
-            <input type="email" placeholder="อีเมล *" required>
-            <textarea rows="3" placeholder="กรุณาอธิบายความต้องการด้านสายเคเบิลของคุณ..."></textarea>
-            <button type="submit" class="submit-btn">ส่งคำขอใบเสนอราคา</button>
-        </form>
-        <div class="modal-note">ทีมงานจะติดต่อกลับภายใน 24 ชั่วโมง</div>
-    </div>
-</div>
 
-<!-- 二维码模态框 (Line 泰语) -->
+<!-- 二维码模态框 -->
 <div class="modal-overlay" id="qrModal">
     <div class="modal-container qr-container">
-        <div class="modal-header"><h3>เพิ่มเพื่อนทาง Line</h3><button class="modal-close" id="closeQRModal">&times;</button></div>
-        <div class="qr-code"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200' viewBox='0 0 200 200'%3E%3Crect width='200' height='200' fill='%2306C755'/%3E%3Ctext x='50%25' y='50%25' font-size='14' fill='white' text-anchor='middle' dy='.3em'%3ELine QR Code%3C/text%3E%3C/svg%3E" alt="Line QR"><p>สแกน QR Code เพื่อเพิ่มเพื่อน</p><a href="https://line.me/R/ti/p/@your_line_id" target="_blank" class="line-link">เปิดใน Line</a></div>
+        <div class="modal-header"><h3>เพิ่มเพื่อนทาง ไลน์</h3><button class="modal-close" id="closeQRModal" aria-label="ปิด">&times;</button></div>
+        <div class="qr-code"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200' viewBox='0 0 200 200'%3E%3Crect width='200' height='200' fill='%2306C755'/%3E%3Ctext x='50%25' y='50%25' font-size='14' fill='white' text-anchor='middle' dy='.3em'%3ELine QR Code%3C/text%3E%3C/svg%3E" alt="รหัสคิวอาร์โค้ดของไลน์"><p>สแกนคิวอาร์โค้ดเพื่อเพิ่มเพื่อน</p><a href="https://line.me/R/ti/p/@your_line_id" target="_blank" class="line-link">เปิดในไลน์</a></div>
     </div>
 </div>
-
 
 <script src="../js/script.js"></script>
 <script src="../js/factory.js"></script>

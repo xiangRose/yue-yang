@@ -35,9 +35,9 @@
         </nav>
         <div class="header-right">
             <div class="lang-toggle">
-                <a href="index.html" class="lang">TH</a>
+                <a href="index.html" class="lang active">ไทย</a>
                 <span class="split">|</span>
-                <a href="index-en.html" class="lang active">EN</a>
+                <a href="index-en.html" class="lang">อังกฤษ</a>
             </div>
             <div class="hamburger" id="hamburger">
                 <span></span><span></span><span></span>
@@ -50,7 +50,6 @@
 <section class="hero">
     <div class="swiper">
         <div class="swiper-wrapper">
-            <!-- Slide 1: 自动化生产线 -->
             <div class="swiper-slide">
                 <img src="../images/hero1.webp" alt="สายการผลิตอัตโนมัติ">
                 <div class="hero-content">
@@ -62,7 +61,6 @@
                     </div>
                 </div>
             </div>
-            <!-- Slide 2: 产品应用场景（医疗/汽车） -->
             <div class="swiper-slide">
                 <img src="../images/hero2.webp" alt="สายเคเบิลสำหรับการแพทย์และยานยนต์">
                 <div class="hero-content">
@@ -74,7 +72,6 @@
                     </div>
                 </div>
             </div>
-            <!-- Slide 3: 全球工厂与技术 -->
             <div class="swiper-slide">
                 <img src="../images/hero3.webp" alt="ฐานการผลิตและเทคโนโลยีระดับโลก">
                 <div class="hero-content">
@@ -228,7 +225,7 @@
                 </address>
                 <address>
                     <strong>โรงงานไทย</strong><br>
-                    123 Moo 4, Tambon Nong Kham, Amphoe Si Racha, Chonburi 20110, Thailand
+                    123 หมู่ 4 ตำบลหนองขาม อำเภอศรีราชา จังหวัดชลบุรี 20110 ประเทศไทย
                 </address>
                 <address>
                     <strong>ฐานการผลิตเสฉวน</strong><br>
@@ -236,7 +233,7 @@
                 </address>
                 <address>
                     <strong>สำนักงานสหรัฐฯ</strong><br>
-                    Newark, New Jersey, US | โทร: +1 (513)-488-2006
+                    นวร์ก, รัฐนิวเจอร์ซีย์, สหรัฐอเมริกา | โทร: +1 (513)-488-2006
                 </address>
             </div>
 
@@ -254,7 +251,7 @@
                     <a href="#"><i class="fab fa-youtube"></i></a>
                 </div>
                 <div class="copyright">
-                    © 2026 บริษัท ตงก่วน เยว่หยาง ไวร์ แอนด์ เคเบิล จำกัด<br>粤ICP备XXXXXXXX号
+                    © 2026 บริษัท ตงก่วน เยว่หยาง ไวร์ แอนด์ เคเบิล จำกัด<br>หมายเลขทะเบียน ICP: XXXXXXXXX
                 </div>
             </div>
         </div>
@@ -265,11 +262,7 @@
 <div class="floating-contact-bar">
     <div class="contact-btn line-btn" id="lineBtn">
         <i class="fab fa-line"></i>
-        <span class="tooltip">ปรึกษาผ่าน Line</span>
-    </div>
-    <div class="contact-btn inquiry-btn" id="inquiryBtn">
-        <i class="fas fa-envelope"></i>
-        <span class="tooltip">สอบถามราคา</span>
+        <span class="tooltip">ปรึกษาผ่าน ไลน์</span>
     </div>
     <div class="contact-btn top-btn" id="topBtn">
         <i class="fas fa-arrow-up"></i>
@@ -277,35 +270,19 @@
     </div>
 </div>
 
-<!-- 询价模态框 -->
-<div class="modal-overlay" id="inquiryModal">
-    <div class="modal-container">
-        <div class="modal-header">
-            <h3>รับโซลูชันที่กำหนดเองทันที</h3>
-            <button class="modal-close" id="closeModal">&times;</button>
-        </div>
-        <form id="inquiryForm">
-            <input type="text" placeholder="ชื่อของคุณ *" required>
-            <input type="email" placeholder="อีเมล *" required>
-            <textarea rows="3" placeholder="กรุณาอธิบายความต้องการด้านสายเคเบิลของคุณ..."></textarea>
-            <button type="submit" class="submit-btn">ส่งคำขอใบเสนอราคา</button>
-        </form>
-        <div class="modal-note">ทีมงานจะติดต่อกลับภายใน 24 ชั่วโมง</div>
-    </div>
-</div>
 
-<!-- 二维码模态框 (Line) -->
+<!-- 二维码模态框 (ไลน์) -->
 <div class="modal-overlay" id="qrModal">
     <div class="modal-container qr-container">
         <div class="modal-header">
-            <h3>เพิ่มเพื่อนทาง Line</h3>
-            <button class="modal-close" id="closeQRModal">&times;</button>
+            <h3>เพิ่มเพื่อนทาง ไลน์</h3>
+            <button class="modal-close" id="closeQRModal" aria-label="ปิด">&times;</button>
         </div>
         <div class="qr-code">
-            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200' viewBox='0 0 200 200'%3E%3Crect width='200' height='200' fill='%2306C755'/%3E%3Ctext x='50%25' y='50%25' font-size='14' fill='white' text-anchor='middle' dy='.3em'%3ELine QR Code%3C/text%3E%3C/svg%3E" alt="Line QR Code">
-            <p>สแกน QR Code เพื่อเพิ่มเพื่อน</p>
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200' viewBox='0 0 200 200'%3E%3Crect width='200' height='200' fill='%2306C755'/%3E%3Ctext x='50%25' y='50%25' font-size='14' fill='white' text-anchor='middle' dy='.3em'%3ELine QR Code%3C/text%3E%3C/svg%3E" alt="รหัสคิวอาร์โค้ดของไลน์">
+            <p>สแกนคิวอาร์โค้ดเพื่อเพิ่มเพื่อน</p>
             <small>หรือคลิกที่ลิงก์ด้านล่าง</small>
-            <a href="https://line.me/R/ti/p/@your_line_id" target="_blank" rel="noopener noreferrer" class="line-link">เปิดใน Line</a>
+            <a href="https://line.me/R/ti/p/@your_line_id" target="_blank" rel="noopener noreferrer" class="line-link">เปิดในไลน์</a>
         </div>
     </div>
 </div>

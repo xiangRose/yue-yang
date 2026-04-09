@@ -68,15 +68,6 @@
     </div>
 </header>
 
-<!-- ========== 面包屑导航 ========== -->
-<nav class="breadcrumb">
-    <div class="container">
-        <a href="index.html">หน้าแรก</a>
-        <span>/</span>
-        <span class="current">บทความและข่าวสาร</span>
-    </div>
-</nav>
-
 <!-- ========== 页面主要内容 ========== -->
 
 <!-- 英雄区 -->
@@ -140,15 +131,6 @@
                     </div>
                 </div>
 
-                <!-- 订阅简报 -->
-                <div class="sidebar-widget newsletter-widget">
-                    <h3><i class="fas fa-envelope"></i> รับข่าวสาร</h3>
-                    <p>รับบทความ和技术ข่าวสารส่งตรงถึงอีเมลของคุณ</p>
-                    <form id="newsletterForm" class="newsletter-form">
-                        <input type="email" placeholder="อีเมลของคุณ" required>
-                        <button type="submit">สมัครรับข่าวสาร</button>
-                    </form>
-                </div>
             </aside>
         </div>
     </div>
@@ -183,7 +165,7 @@
                 </address>
                 <address>
                     <strong>โรงงานไทย</strong><br>
-                    123 Moo 4, Tambon Nong Kham, Amphoe Si Racha, Chonburi 20110, Thailand
+                    123 หมู่ 4 ตำบลหนองขาม อำเภอศรีราชา จังหวัดชลบุรี 20110 ประเทศไทย
                 </address>
                 <address>
                     <strong>ฐานการผลิตเสฉวน</strong><br>
@@ -191,7 +173,7 @@
                 </address>
                 <address>
                     <strong>สำนักงานสหรัฐฯ</strong><br>
-                    Newark, New Jersey, US | โทร: +1 (513)-488-2006
+                    นวร์ก, รัฐนิวเจอร์ซีย์, สหรัฐอเมริกา | โทร: +1 (513)-488-2006
                 </address>
             </div>
 
@@ -201,15 +183,15 @@
                     <span>UL</span> <span>ISO9001</span> <span>IATF16949</span> <span>ISO13485</span> <span>ISO14001</span>
                 </div>
                 <div class="social-links">
-                    <a href="https://www.facebook.com/yourpage" target="_blank"><i class="fab fa-facebook"></i></a>
-                    <a href="https://www.tiktok.com/@yourhandle" target="_blank"><i class="fab fa-tiktok"></i></a>
-                    <a href="https://line.me/R/ti/p/@your_line_id" target="_blank"><i class="fab fa-line"></i></a>
+                    <a href="https://www.facebook.com/yourpage" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook"></i></a>
+                    <a href="https://www.tiktok.com/@yourhandle" target="_blank" rel="noopener noreferrer"><i class="fab fa-tiktok"></i></a>
+                    <a href="https://line.me/R/ti/p/@your_line_id" target="_blank" rel="noopener noreferrer"><i class="fab fa-line"></i></a>
                     <a href="#"><i class="fab fa-linkedin"></i></a>
                     <a href="#"><i class="fab fa-weixin"></i></a>
                     <a href="#"><i class="fab fa-youtube"></i></a>
                 </div>
                 <div class="copyright">
-                    © 2026 บริษัท ตงก่วน เยว่หยาง ไวร์ แอนด์ เคเบิล จำกัด<br>粤ICP备XXXXXXXX号
+                    © 2026 บริษัท ตงก่วน เยว่หยาง ไวร์ แอนด์ เคเบิล จำกัด<br>หมายเลขทะเบียน ICP: XXXXXXXXX
                 </div>
             </div>
         </div>
@@ -219,23 +201,9 @@
 <!-- 浮动联络栏 -->
 <div class="floating-contact-bar">
     <div class="contact-btn line-btn" id="lineBtn"><i class="fab fa-line"></i><span class="tooltip">Line ปรึกษา</span></div>
-    <div class="contact-btn inquiry-btn" id="inquiryBtn"><i class="fas fa-envelope"></i><span class="tooltip">สอบถามราคา</span></div>
     <div class="contact-btn top-btn" id="topBtn"><i class="fas fa-arrow-up"></i><span class="tooltip">กลับด้านบน</span></div>
 </div>
 
-<!-- 询价模态框 -->
-<div class="modal-overlay" id="inquiryModal">
-    <div class="modal-container">
-        <div class="modal-header"><h3>รับโซลูชันที่กำหนดเองทันที</h3><button class="modal-close" id="closeModal">&times;</button></div>
-        <form id="inquiryForm">
-            <input type="text" placeholder="ชื่อของคุณ *" required>
-            <input type="email" placeholder="อีเมล *" required>
-            <textarea rows="3" placeholder="กรุณาอธิบายความต้องการด้านสายเคเบิลของคุณ..."></textarea>
-            <button type="submit" class="submit-btn">ส่งคำขอใบเสนอราคา</button>
-        </form>
-        <div class="modal-note">ทีมงานจะติดต่อกลับภายใน 24 ชั่วโมง</div>
-    </div>
-</div>
 
 <!-- 二维码模态框 (Line) -->
 <div class="modal-overlay" id="qrModal">
