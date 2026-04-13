@@ -484,7 +484,34 @@ body {
     color: #2c7da0;
     font-weight: 500;
 }
+/* 点击卡片后展开的产品介绍框 - 白色文字 + 深色背景 */
+.product-info-expand {
+    background: #2c7da0 !important;      /* 强制深蓝色背景 */
+    border-radius: 20px;
+    padding: 16px 20px;
+    margin-top: 12px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    border-left: 4px solid #ffd966;
+    animation: fadeInUp 0.3s ease;
+}
 
+.product-info-expand .expand-content p {
+    margin: 0;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    color: #ffffff !important;          /* 强制白色文字 */
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
 /* 悬停遮罩（不参与布局，位置绝对） */
 .card-hover-overlay {
     position: absolute;

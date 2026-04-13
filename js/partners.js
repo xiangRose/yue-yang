@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', function() {
         { name: 'Anker', logo: '../images/logo_anker.webp', description: 'พันธมิตรอุปกรณ์อิเล็กทรอนิกส์เพื่อผู้บริโภค ให้บริการสาย TPU จากวัสดุชีวภาพ รองรับการชาร์จเร็วและการส่งข้อมูลประสิทธิภาพสูง' },
         { name: 'Tesla', logo: '../images/logo_tesla.webp', description: 'ซัพพลายเออร์สายไฟยานยนต์ไฟฟ้า ให้บริการสายไฟฟ้าแรงสูง สายชาร์จ และสายสัญญาณภายในรถ' },
         { name: 'Siemens', logo: '../images/logo_siemens.webp', description: 'พันธมิตรระบบอัตโนมัติอุตสาหกรรม ให้บริการสายเคเบิลลากจูงความยืดหยุ่นสูง สายหุ่นยนต์ ตอบสนองสภาพแวดล้อมอุตสาหกรรมที่ต้องการความทนทาน' },
-        { name: 'ABB', logo: '../images/logo_Abb.webp', description: 'ซัพพลายเออร์สายเคเบิลอุปกรณ์อุตสาหกรรม ให้บริการสายควบคุมอุตสาหกรรมที่ทนน้ำมัน ทนอุณหภูมิสูง และป้องกันสัญญาณรบกวน' }
+        { name: 'ABB', logo: '../images/logo_ABB.webp', description: 'ซัพพลายเออร์สายเคเบิลอุปกรณ์อุตสาหกรรม ให้บริการสายควบคุมอุตสาหกรรมที่ทนน้ำมัน ทนอุณหภูมิสูง และป้องกันสัญญาณรบกวน' }
     ];
 
     const clientsGrid = document.getElementById('clientsGrid');

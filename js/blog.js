@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', async function() {
             const data = await response.json();
             return data.records;   // 直接返回 Airtable 的记录数组
         } catch (error) {
-            console.error('获取文章失败:', error);
+            console.error('Failed to fetch articles:', error);
             return [];
         }
     }
@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', async function() {
         if (!grid) return;
 
         if (!records || records.length === 0) {
-            grid.innerHTML = '<p style="text-align:center; padding:40px;">暂无文章，请稍后再来。</p>';
+            grid.innerHTML = '<p style="text-align:center; padding:40px;">No articles yet. Please check back later.</p>';
             return;
         }
 
@@ -66,7 +66,7 @@ document.addEventListener('DOMContentLoaded', async function() {
         // 按 Views 字段排序（若无 Views 则默认为0）
         const sorted = [...records].sort((a, b) => (b.fields.Views || 0) - (a.fields.Views || 0)).slice(0, 4);
         if (sorted.length === 0) {
-            popularList.innerHTML = '<li>暂无热门文章</li>';
+            popularList.innerHTML = '<li>No popular posts yet.</li>';
             return;
         }
 
@@ -100,7 +100,7 @@ document.addEventListener('DOMContentLoaded', async function() {
         });
 
         if (categoriesSet.size === 0) {
-            categoryList.innerHTML = '<li>暂无分类</li>';
+            categoryList.innerHTML = '<li>No categories available.</li>';
             return;
         }
 
@@ -108,14 +108,25 @@ document.addEventListener('DOMContentLoaded', async function() {
         categoryList.innerHTML = categories.map(cat => `<li><a href="blog.html?category=${encodeURIComponent(cat)}">${cat}</a></li>`).join('');
     }
 
-    // ---------- 渲染标签云（静态标签，也可改为动态） ----------
-    function renderTagCloud() {
-        const tagCloud = document.getElementById('tagCloud');
-        if (!tagCloud) return;
-        // 您可以根据实际需要修改这个数组，或者从 Airtable 动态获取
-        const tags = ["ISO13485", "EV Charging", "IP68", "UL认证", "IATF16949", "USB4", "HDMI 2.1", "拖链电缆", "医疗线缆", "汽车线束"];
-        tagCloud.innerHTML = tags.map(tag => `<a href="blog.html?tag=${encodeURIComponent(tag)}">${tag}</a>`).join('');
-    }
+// ---------- 渲染标签云（静态标签，也可改为动态） ----------
+function renderTagCloud() {
+    const tagCloud = document.getElementById('tagCloud');
+    if (!tagCloud) return;
+    // 您可以根据实际需要修改这个数组，或者从 Airtable 动态获取
+    const tags = [
+        "ISO13485", 
+        "EV Charging", 
+        "IP68", 
+        "UL Certification", 
+        "IATF16949", 
+        "USB4", 
+        "HDMI 2.1", 
+        "Drag Chain Cable", 
+        "Medical Cable", 
+        "Automotive Wiring Harness"
+    ];
+    tagCloud.innerHTML = tags.map(tag => `<a href="blog.html?tag=${encodeURIComponent(tag)}">${tag}</a>`).join('');
+}
 
     // ---------- 格式化日期 ----------
     function formatDate(dateStr) {
@@ -129,22 +140,6 @@ document.addEventListener('DOMContentLoaded', async function() {
         });
     }
 
-    // ---------- 订阅表单提交 ----------
-    function initNewsletterForm() {
-        const form = document.getElementById('newsletterForm');
-        if (!form) return;
-        form.addEventListener('submit', function(e) {
-            e.preventDefault();
-            const email = this.querySelector('input[type="email"]')?.value;
-            if (email) {
-                alert(`ขอบคุณที่สมัครรับข่าวสาร! (${email})`);
-                this.reset();
-            } else {
-                alert('กรุณากรอกอีเมลของคุณ');
-            }
-        });
-    }
-
     // ---------- 搜索表单提交 ----------
     function initSearchForm() {
         const form = document.querySelector('.search-form');
@@ -152,7 +147,7 @@ document.addEventListener('DOMContentLoaded', async function() {
         form.addEventListener('submit', function(e) {
             e.preventDefault();
             const keyword = this.querySelector('input')?.value;
-            alert(`กำลังค้นหาบทความ: ${keyword || ''}`);
+            alert(`Searching for: ${keyword || ''}`);
         });
     }
 
